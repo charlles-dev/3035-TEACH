@@ -14,7 +14,7 @@ programa de formação **Fullstack Developer** oferecido pela
 **3035TECH**. O objetivo é documentar a progressão do aprendizado nos 7
 módulos, com forte ênfase em **Java, Spring Boot e React**.
 
-## 🏆 Foco e Resultados da Formação {#foco-e-resultados-da-formação}
+## 🏆 Foco e Resultados da Formação
 
 Este curso me capacitou a atuar como um desenvolvedor Fullstack
 proficiente, com domínio na criação de sistemas robustos e seguros:
@@ -52,7 +52,7 @@ proficiente, com domínio na criação de sistemas robustos e seguros:
 - [📄 Licença e Suporte](#licenca-e-suporte)
 - [📚 Wiki](#wiki)
 
-## 🎯 Visão Geral {#visao-geral}
+## 🎯 Visão Geral
 
 Este projeto é um \"diário de bordo\" do meu desenvolvimento como
 Fullstack, demonstrando a evolução desde o HTML/CSS básico até a criação
@@ -66,7 +66,7 @@ de APIs complexas com Java e Spring Boot.
 | **Foco:**                   | Prática intensiva em Desenvolvimento de Software |
 | **Status:**                 | 🔄 Em Andamento                                  |
 
-## 🏗️ Arquitetura (M07 - Desafio Final) {#arquitetura-m07}
+## 🏗️ Arquitetura (M07 - Desafio Final)
 
 O **Desafio Final** segue um modelo de arquitetura em camadas (Layered
 Architecture), garantindo separação de responsabilidades e
@@ -94,7 +94,7 @@ escalabilidade:
 3. **Segurança:** Utilização do padrão **Stateless** com JWT para
     > autenticação.
 
-## 🛠️ Tecnologias Utilizadas {#tecnologias-utilizadas}
+## 🛠️ Tecnologias Utilizadas
 
 As atividades foram desenvolvidas utilizando as seguintes tecnologias
 principais, com forte foco em Java:
@@ -114,7 +114,7 @@ principais, com forte foco em Java:
 | **Linters (ESLint)**    | Padronização e garantia de qualidade de código Frontend.             |
 | **Editor de Código**    | **Nome do seu IDE/Editor**                                           |
 
-## 📝 Padrões de Código e Metodologia {#padroes-de-codigo-e-metodologia}
+## 📝 Padrões de Código e Metodologia
 
 Todas as atividades complexas e projetos seguem os seguintes padrões,
 cruciais para um ambiente de desenvolvimento profissional:
@@ -172,15 +172,15 @@ Para executar todas as atividades (Front e Back) localmente:
 
 - **Navegador Web:** Chrome, Firefox ou similar.
 
-## 🚀 Instalação e Configuração {#instalacao-e-configuracao}
+## 🚀 Instalação e Configuração
 
-### 1. Clone o Repositório {#clone-o-repositório}
+### 1. Clone o Repositório
 
 git clone
 \[<https://github.com/seu-usuario/Atividades-3035TEACH.git\>](<https://github.com/seu-usuario/Atividades-3035TEACH.git>)  
 cd Atividades-3035TEACH
 
-### 2. Configuração de Ambientes (Se necessário) {#configuração-de-ambientes-se-necessário}
+### 2. Configuração de Ambientes (Se necessário)
 
 Alguns módulos (como React ou Backend) podem requerer a instalação de
 dependências:
@@ -198,7 +198,7 @@ mvn clean install
 cd M02-Frontend-II-React/  
 npm install \# ou yarn install
 
-## 📁 Estrutura do Projeto {#estrutura-do-projeto}
+## 📁 Estrutura do Projeto
 
 A organização segue os 7 módulos do programa de formação:
 
@@ -214,7 +214,7 @@ Atividades-3035TEACH/
 ├── LICENSE  
 └── .gitignore
 
-## 🔧 Módulos de Atividades {#modulos-de-atividades}
+## 🔧 Módulos de Atividades
 
 | **Módulo**                 | **Foco Principal**                                        | **Atividade Destaque**                                                                     | **Link Direto**                                                                                                                                                                                                    |
 | -------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -228,7 +228,7 @@ Atividades-3035TEACH/
 
 ## 🏃 Como Executar os Scripts {#como-executar-os-scripts}
 
-### 1. Módulos Frontend (M01 e M02) {#módulos-frontend-m01-e-m02}
+### 1. Módulos Frontend (M01 e M02)
 
 - **M01 (Web Estático):** Abra o arquivo .html diretamente no seu
 
@@ -237,7 +237,7 @@ Atividades-3035TEACH/
 - **M02 (React/TS):** Navegue até a pasta do projeto (M02) e execute:
   > npm start (ou yarn start).
 
-### 2. Módulos Backend (M03 a M06) {#módulos-backend-m03-a-m06}
+### 2. Módulos Backend (M03 a M06)
 
 - **M03 a M05 (Java Puro/JDBC):** Compile e execute o arquivo .java
 
@@ -247,7 +247,7 @@ Atividades-3035TEACH/
 - **M06 (Spring Boot):** Navegue até a pasta e execute o comando de run:
   > mvn spring-boot:run ou gradlew bootRun.
 
-## 📈 Roadmap e Próximos Passos {#roadmap-e-proximos-passos}
+## 📈 Roadmap e Próximos Passos
 
 | **Fase**           | **Foco**                                                                                                           | **Status**      |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------ | --------------- |
@@ -255,7 +255,7 @@ Atividades-3035TEACH/
 | **Fase 2**         | **Refatoração:** Aplicar os princípios **SOLID** e **Clean Code** nas atividades do Backend (M04 a M06).           | 📋 Planejando    |
 | **Fase 3**         | **Projetos Extras:** Adicionar documentação OpenAPI/Swagger para as APIs e implementar Testes Unitários com JUnit. | 📋 Planejando    |
 
-## 🤝 Contribuição {#contribuicao}
+## 🤝 Contribuição
 
 Este é um repositório pessoal de aprendizado, mas sinta-se à vontade
 para sugerir melhorias em meus scripts através de Pull Requests.
@@ -273,7 +273,7 @@ para sugerir melhorias em meus scripts através de Pull Requests.
 4. Crie um **Pull Request**, descrevendo o que foi melhorado e o
     > motivo.
 
-## 📄 Licença e Suporte {#licenca-e-suporte}
+## 📄 Licença e Suporte
 
 Este projeto está licenciado sob a licença **MIT**. Veja o arquivo
 LICENSE para mais detalhes.
@@ -285,4 +285,4 @@ de algum script, entre em contato:
 - [**LinkedIn**](https://linkedin.com/in/charlles-augusto)
 - [**Portfólio Pessoal**](https://charlles.dev)
 
-### Desenvolvido com ❤️ por charlles
+**Desenvolvido com ❤️ por [charlles-dev](https://github.com/charlles-dev)**
