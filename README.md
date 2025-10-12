@@ -50,6 +50,7 @@ proficiente, com domínio na criação de sistemas robustos e seguros:
 - [📈 Roadmap e Próximos Passos](#roadmap-e-proximos-passos)
 - [🤝 Contribuição](#contribuicao)
 - [📄 Licença e Suporte](#licenca-e-suporte)
+- [📚 Wiki](#wiki)
 
 ## 🎯 Visão Geral {#visao-geral}
 
@@ -147,6 +148,13 @@ cruciais para um ambiente de desenvolvimento profissional:
   > curso.
 
 ## ⚙️ Pré-requisitos {#pre-requisitos}
+
+## 📚 Wiki {#wiki}
+
+A documentação detalhada do curso (guias, módulos, padrões e fluxos) está disponível na Wiki do projeto. Acesse a Wiki para guias passo-a-passo, roteiros de estudo e páginas de módulos:
+
+- [Wiki Home](./wiki/Home.md)
+
 
 Para executar todas as atividades (Front e Back) localmente:
 
