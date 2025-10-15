@@ -1,0 +1,99 @@
+
+/* Base layout */
+:root{
+	--teal: #0f9b77; /* header and accent */
+	--teal-dark: #0d8a68;
+	--muted: #f3f3f3;
+	--text: #222;
+	--soft-border: #e4e4e4;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+	font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	color:var(--text);
+	background:linear-gradient(180deg,#fafafa 0%, #ffffff 100%);
+	padding:40px;
+}
+
+.card-wrap{
+	max-width:1000px;
+	margin:24px auto;
+	padding:20px;
+}
+
+.leader-card{
+	background: #fff;
+	border-radius:12px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+	overflow:hidden;
+}
+
+/* Table */
+.leaderboard{
+	width:100%;
+	border-collapse:collapse;
+	text-align:left;
+}
+
+.leaderboard thead tr{
+	background:var(--teal);
+	color:#fff;
+}
+
+.leaderboard th{
+	padding:28px 24px;
+	font-weight:700;
+	font-size:28px;
+}
+
+.leaderboard tbody tr{
+	border-bottom:1px solid var(--soft-border);
+}
+
+.leaderboard td{
+	padding:26px 24px;
+	font-size:20px;
+	font-weight:400;
+}
+
+.leaderboard .col-rank{width:10%}
+.leaderboard .col-name{width:40%}
+.leaderboard .col-points{text-align:center;width:25%}
+.leaderboard .col-team{text-align:right;width:25%}
+
+/* First and last row spacing to mimic image */
+.leaderboard tbody tr.top td{padding-top:20px}
+
+/* Highlighted row */
+.leaderboard tbody tr.highlight{
+	background: linear-gradient(180deg, #f5f6f5 0%, #efefef 100%);
+}
+
+.leaderboard tbody tr.highlight td{
+	color:var(--teal-dark);
+	font-weight:700;
+}
+
+/* Bold-style columns in highlighted row */
+.name-strong{font-weight:700}
+.points-strong{font-weight:700}
+.team-strong{font-weight:700}
+
+/* Bottom accent line */
+.leader-card:after{
+	content:"";
+	display:block;
+	height:6px;
+	background:var(--teal);
+	margin-top:6px;
+}
+
+/* Responsiveness */
+@media (max-width:680px){
+	.leaderboard th{font-size:18px; padding:16px}
+	.leaderboard td{font-size:16px; padding:12px}
+	.leader-card{border-radius:10px}
+}
+
