@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code & Coffee - Technology Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="../assets/logo_mobile.png">
+                        <img src="../assets/logo_desktop.png" alt="Code & Coffee Logo">
+                    </picture>
+                </div>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <div class="nav-container">
+                    <nav>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Technology</a></li>
+                            <li><a href="#">AI</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                    <button class="subscribe-btn">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- Desktop Layout -->
+        <div class="main-content">
+            <main class="content-area">
+                <article class="featured-post">
+                    <div class="featured-image">
+                        <span class="featured-badge">Featured</span>
+                        <div>
+                            <h1>The Generative AI Revolution: Transforming the Digital Future</h1>
+                            <p>How new AI technologies are redefining the boundaries of creativity</p>
+                        </div>
+                    </div>
+                    <div class="featured-content">
+                        <p>Generative artificial intelligence is at the center of the current technological revolution. Models like GPT-4, DALL-E, and Midjourney are challenging our understanding of creativity and computational power, transforming industries from software development to content creation.</p>
+                        <a href="#" class="read-more-btn">Read More</a>
+                    </div>
+                </article>
+                
+                <section class="articles-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Recent Articles</h2>
+                        <a href="#" class="view-all">View all →</a>
+                    </div>
+                    
+                    <div class="articles-grid">
+                        <article class="article-card quantum-computing">
+                            <div class="article-image"></div>
+                            <div class="article-content">
+                                <span class="article-tag">Quantum Computing</span>
+                                <h3>Quantum Computing: The Next Technological Leap</h3>
+                                <p>Discover how quantum computers promise to solve complex problems that would take millennia for classical computers.</p>
+                                <a href="#" class="read-more-btn">Read More</a>
+                            </div>
+                        </article>
+                        
+                        <article class="article-card cybersecurity">
+                            <div class="article-image"></div>
+                            <div class="article-content">
+                                <span class="article-tag">Cybersecurity</span>
+                                <h3>Security in the AI Era: New Challenges</h3>
+                                <p>Explore how artificial intelligence is being used both to create advanced cyber threats and to develop robust defense systems.</p>
+                                <a href="#" class="read-more-btn">Read More</a>
+                            </div>
+                        </article>
+                        
+                        <article class="article-card blockchain">
+                            <div class="article-image"></div>
+                            <div class="article-content">
+                                <span class="article-tag">Blockchain</span>
+                                <h3>Web3 and the Future of Decentralized Internet</h3>
+                                <p>Dive into the Web3 universe, where blockchain and smart contracts are building a more transparent and democratic internet.</p>
+                                <a href="#" class="read-more-btn">Read More</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+            </main>
+            
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-layer-group"></i>
+                        Categories
+                    </h3>
+                    <ul class="categories-list">
+                        <li><a href="#">Artificial Intelligence <span class="category-count">24</span></a></li>
+                        <li><a href="#">Machine Learning <span class="category-count">18</span></a></li>
+                        <li><a href="#">Blockchain <span class="category-count">15</span></a></li>
+                        <li><a href="#">Cybersecurity <span class="category-count">12</span></a></li>
+                        <li><a href="#">Quantum Computing <span class="category-count">8</span></a></li>
+                        <li><a href="#">IoT <span class="category-count">10</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">
+                        <i class="fas fa-fire"></i>
+                        Popular
+                    </h3>
+                    <div class="popular-posts">
+                        <div class="popular-post">
+                            <div class="popular-post-image"></div>
+                            <div class="popular-post-content">
+                                <h4>Technology Trends for 2025</h4>
+                                <p><i class="far fa-clock"></i> 8 min</p>
+                            </div>
+                        </div>
+                        <div class="popular-post">
+                            <div class="popular-post-image"></div>
+                            <div class="popular-post-content">
+                                <h4>How Machine Learning is Changing the World</h4>
+                                <p><i class="far fa-clock"></i> 12 min</p>
+                            </div>
+                        </div>
+                        <div class="popular-post">
+                            <div class="popular-post-image"></div>
+                            <div class="popular-post-content">
+                                <h4>Web3: The Next Generation of Internet</h4>
+                                <p><i class="far fa-clock"></i> 10 min</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+        
+        <!-- Mobile Layout - Ordered as requested -->
+        <div class="mobile-content">
+            <!-- 1. Featured Article -->
+            <article class="featured-post">
+                <div class="featured-image">
+                    <span class="featured-badge">Featured</span>
+                    <div>
+                        <h1>The Generative AI Revolution: Transforming the Digital Future</h1>
+                        <p>How new AI technologies are redefining the boundaries of creativity</p>
+                    </div>
+                </div>
+                <div class="featured-content">
+                    <p>Generative artificial intelligence is at the center of the current technological revolution. Models like GPT-4, DALL-E, and Midjourney are challenging our understanding of creativity and computational power, transforming industries from software development to content creation.</p>
+                    <a href="#" class="read-more-btn">Read More</a>
+                </div>
+            </article>
+            
+            <!-- 2. Recent Articles -->
+            <section class="articles-section">
+                <div class="section-header">
+                    <h2 class="section-title">Recent Articles</h2>
+                    <a href="#" class="view-all">View all →</a>
+                </div>
+                
+                <div class="articles-grid">
+                    <article class="article-card quantum-computing">
+                        <div class="article-image"></div>
+                        <div class="article-content">
+                            <span class="article-tag">Quantum Computing</span>
+                            <h3>Quantum Computing: The Next Technological Leap</h3>
+                            <p>Discover how quantum computers promise to solve complex problems that would take millennia for classical computers.</p>
+                            <a href="#" class="read-more-btn">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="article-card cybersecurity">
+                        <div class="article-image"></div>
+                        <div class="article-content">
+                            <span class="article-tag">Cybersecurity</span>
+                            <h3>Security in the AI Era: New Challenges</h3>
+                            <p>Explore how artificial intelligence is being used both to create advanced cyber threats and to develop robust defense systems.</p>
+                            <a href="#" class="read-more-btn">Read More</a>
+                            </div>
+                    </article>
+                    
+                    <article class="article-card blockchain">
+                        <div class="article-image"></div>
+                        <div class="article-content">
+                            <span class="article-tag">Blockchain</span>
+                            <h3>Web3 and the Future of Decentralized Internet</h3>
+                            <p>Dive into the Web3 universe, where blockchain and smart contracts are building a more transparent and democratic internet.</p>
+                            <a href="#" class="read-more-btn">Read More</a>
+                            </div>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- 3. Popular Posts -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i class="fas fa-fire"></i>
+                    Popular
+                </h3>
+                <div class="popular-posts">
+                    <div class="popular-post">
+                        <div class="popular-post-image"></div>
+                        <div class="popular-post-content">
+                            <h4>Technology Trends for 2024</h4>
+                            <p><i class="far fa-clock"></i> 8 min</p>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <div class="popular-post-image"></div>
+                        <div class="popular-post-content">
+                            <h4>How Machine Learning is Changing the World</h4>
+                            <p><i class="far fa-clock"></i> 12 min</p>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <div class="popular-post-image"></div>
+                        <div class="popular-post-content">
+                            <h4>Web3: The Next Generation of Internet</h4>
+                            <p><i class="far fa-clock"></i> 10 min</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 4. Categories -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-title">
+                    <i class="fas fa-layer-group"></i>
+                    Categories
+                </h3>
+                <ul class="categories-list">
+                    <li><a href="#">Artificial Intelligence <span class="category-count">24</span></a></li>
+                    <li><a href="#">Machine Learning <span class="category-count">18</span></a></li>
+                    <li><a href="#">Blockchain <span class="category-count">15</span></a></li>
+                    <li><a href="#">Cybersecurity <span class="category-count">12</span></a></li>
+                    <li><a href="#">Quantum Computing <span class="category-count">8</span></a></li>
+                    <li><a href="#">IoT <span class="category-count">10</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Code & Coffee</h3>
+                    <p>Your reference portal for technology, innovation, and digital trends. Bringing the latest tech news with in-depth analysis.</p>
+                    <div class="social-links">
+                        <a href="https://x.com"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com"><i class="fab fa-github"></i></a>
+                        <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Articles</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Artificial Intelligence</a></li>
+                        <li><a href="#">Blockchain</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                        <li><a href="#">IoT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="mailto:contact@codecoffee.com">contact@codecoffee.com</a></li>
+                        <li><a href="tel:+5583123456789">(83) 12345-4567</a></li>
+                        <li>Campina Grande-PB, Brazil</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Code & Coffee. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
