@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div class="calculator-container">
+        <div class="calculator" id="calculator">
+            <div class="calculator-header">
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="standard">Padrão</button>
+                    <button class="mode-btn" data-mode="scientific">Científica</button>
+                </div>
+                <button class="theme-toggle" id="themeToggle">🌙</button>
+            </div>
+
+            <div class="display-container">
+                <div class="memory-indicator" id="memoryIndicator">M</div>
+                <div class="expression" id="expression"></div>
+                <div class="display" id="display">0</div>
+            </div>
+
+            <div class="keyboard-container">
+                <div class="memory-row">
+                    <button class="memory-btn" id="mc">MC</button>
+                    <button class="memory-btn" id="mr">MR</button>
+                    <button class="memory-btn" id="mplus">M+</button>
+                    <button class="memory-btn" id="mminus">M-</button>
+                    <button class="memory-btn" id="ms">MS</button>
+                    <button class="memory-btn" id="m-">M⇄</button>
+                </div>
+
+                <div class="scientific-row" id="scientificButtons">
+                    <button class="scientific-btn" data-func="sqrt">√</button>
+                    <button class="scientific-btn" data-func="square">x²</button>
+                    <button class="scientific-btn" data-func="cube">x³</button>
+                    <button class="scientific-btn" data-func="power">xʸ</button>
+                    <button class="scientific-btn" data-func="reciprocal">1/x</button>
+
+                    <button class="scientific-btn" data-func="log">log</button>
+                    <button class="scientific-btn" data-func="ln">ln</button>
+                    <button class="scientific-btn" data-func="sin">sin</button>
+                    <button class="scientific-btn" data-func="cos">cos</button>
+                    <button class="scientific-btn" data-func="tan">tan</button>
+
+                    <button class="scientific-btn" data-func="factorial">n!</button>
+                    <button class="scientific-btn" data-func="pi">π</button>
+                    <button class="scientific-btn" data-func="e">e</button>
+                    <button class="scientific-btn" data-func="abs">|x|</button>
+                    <button class="scientific-btn" data-func="negate">±</button>
+                </div>
+
+                <div class="main-buttons" id="mainButtons">
+                    <button class="clear-btn" id="percent">%</button>
+                    <button class="clear-btn" id="ce">CE</button>
+                    <button class="clear-btn" id="c">C</button>
+                    <button class="function-btn" id="backspace">⌫</button>
+                    <button class="operator-btn" id="divide">÷</button>
+
+                    <button class="number-btn" id="seven">7</button>
+                    <button class="number-btn" id="eight">8</button>
+                    <button class="number-btn" id="nine">9</button>
+                    <button class="operator-btn" id="multiply">×</button>
+
+                    <button class="number-btn" id="four">4</button>
+                    <button class="number-btn" id="five">5</button>
+                    <button class="number-btn" id="six">6</button>
+                    <button class="operator-btn" id="subtract">−</button>
+
+                    <button class="number-btn" id="one">1</button>
+                    <button class="number-btn" id="two">2</button>
+                    <button class="number-btn" id="three">3</button>
+                    <button class="operator-btn" id="add">+</button>
+
+                    <button class="number-btn zero-btn" id="zero">0</button>
+                    <button class="number-btn" id="decimal">.</button>
+                    <button class="equals-btn" id="equals">=</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="history-panel">
+            <div class="history-header">
+                Histórico
+                <button class="clear-history" id="clearHistory">Limpar</button>
+            </div>
+            <div class="history-list" id="historyList"></div>
+        </div>
+    </div>
+
+    <div class="tooltip" id="tooltip"></div>
+</body>
+
+</html>
