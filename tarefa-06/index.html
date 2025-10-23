@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    <script defer src="main.js"></script>
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1 class="app-title">Lista de Tarefas</h1>
+        </header>
+
+        <form class="task-form" id="taskForm">
+            <input 
+                type="text" 
+                class="form-control task-input" 
+                id="taskInput" 
+                placeholder="Digite uma nova tarefa..."
+                required
+            >
+            <button type="submit" class="btn btn--primary">Adicionar</button>
+        </form>
+
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="todas">Todas</button>
+            <button class="filter-btn" data-filter="pendentes">Pendentes</button>
+            <button class="filter-btn" data-filter="concluidas">Concluídas</button>
+        </div>
+
+        <div class="task-counter" id="taskCounter">
+            0 tarefas pendentes
+        </div>
+
+        <div class="task-list" id="taskList">
+        </div>
+    </div>
+</body>
+</html>
