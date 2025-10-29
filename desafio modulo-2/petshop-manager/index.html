@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare Plus - Seu Pet Merece o Melhor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <svg class="logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 28C22.6274 28 28 22.6274 28 16C28 9.37258 22.6274 4 16 4C9.37258 4 4 9.37258 4 16C4 22.6274 9.37258 28 16 28Z" fill="#F6B93B"/>
+                    <path d="M12 14C12.5523 14 13 13.5523 13 13C13 12.4477 12.5523 12 12 12C11.4477 12 11 12.4477 11 13C11 13.5523 11.4477 14 12 14Z" fill="#3A3A3A"/>
+                    <path d="M20 14C20.5523 14 21 13.5523 21 13C21 12.4477 20.5523 12 20 12C19.4477 12 19 12.4477 19 13C19 13.5523 19.4477 14 20 14Z" fill="#3A3A3A"/>
+                    <path d="M16 20C17.6569 20 19 18.6569 19 17H13C13 18.6569 14.3431 20 16 20Z" fill="#3A3A3A"/>
+                    <ellipse cx="10" cy="8" rx="3" ry="4" fill="#F6B93B"/>
+                    <ellipse cx="22" cy="8" rx="3" ry="4" fill="#F6B93B"/>
+                </svg>
+                <span class="logo-text">PetCare Plus</span>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="nav-link active" data-page="home">Início</a></li>
+                <li><a href="#" class="nav-link" data-page="clientes">Clientes</a></li>
+                <li><a href="#" class="nav-link" data-page="produtos">Produtos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page: Home -->
+    <div class="page active" id="page-home">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">PetCare Plus</h1>
+                    <p class="hero-description">Cuidamos do seu pet com carinho e profissionalismo. Atendimento veterinário, banho e tosa, e os melhores produtos para seu amigo.</p>
+                </div>
+                <div class="hero-icon">
+                    <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" fill="#A3D5D3" opacity="0.3"/>
+                        <ellipse cx="70" cy="60" rx="20" ry="25" fill="#F6B93B"/>
+                        <ellipse cx="130" cy="60" rx="20" ry="25" fill="#F6B93B"/>
+                        <circle cx="100" cy="100" r="60" fill="#1F6764"/>
+                        <circle cx="85" cy="95" r="8" fill="#FAFAF8"/>
+                        <circle cx="115" cy="95" r="8" fill="#FAFAF8"/>
+                        <path d="M100 105 L100 115 M100 115 L85 125 M100 115 L115 125" stroke="#FAFAF8" stroke-width="4" stroke-linecap="round"/>
+                        <path d="M75 120 Q100 140 125 120" stroke="#FAFAF8" stroke-width="4" stroke-linecap="round" fill="none"/>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Registration Form -->
+        <section class="form-section">
+            <div class="container">
+                <h2 class="section-title">Cadastro de Cliente</h2>
+                <form id="clientForm" class="client-form">
+                    <!-- Tutor Data -->
+                    <div class="form-subsection">
+                        <h3 class="subsection-title">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10Z" fill="#1F6764"/>
+                                <path d="M10 12C4.47715 12 0 14.4772 0 17.5V20H20V17.5C20 14.4772 15.5228 12 10 12Z" fill="#1F6764"/>
+                            </svg>
+                            Dados do Tutor
+                        </h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="tutorName" class="form-label">Nome completo *</label>
+                                <input type="text" id="tutorName" name="tutorName" class="form-input" required>
+                                <span class="error-message" id="tutorNameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="tutorPhone" class="form-label">Telefone *</label>
+                                <input type="tel" id="tutorPhone" name="tutorPhone" class="form-input" placeholder="(00) 00000-0000" required>
+                                <span class="error-message" id="tutorPhoneError"></span>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="tutorAddress" class="form-label">Endereço *</label>
+                                <input type="text" id="tutorAddress" name="tutorAddress" class="form-input" required>
+                                <span class="error-message" id="tutorAddressError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="serviceDate" class="form-label">Data do atendimento *</label>
+                                <input type="date" id="serviceDate" name="serviceDate" class="form-input" required>
+                                <span class="error-message" id="serviceDateError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pet Data -->
+                    <div class="form-subsection">
+                        <h3 class="subsection-title">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <ellipse cx="6" cy="4" rx="3" ry="4" fill="#F6B93B"/>
+                                <ellipse cx="14" cy="4" rx="3" ry="4" fill="#F6B93B"/>
+                                <circle cx="10" cy="10" r="7" fill="#1F6764"/>
+                                <circle cx="8" cy="9" r="1.5" fill="#FAFAF8"/>
+                                <circle cx="12" cy="9" r="1.5" fill="#FAFAF8"/>
+                            </svg>
+                            Dados do Pet
+                        </h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="petName" class="form-label">Nome do pet *</label>
+                                <input type="text" id="petName" name="petName" class="form-input" required>
+                                <span class="error-message" id="petNameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="petAge" class="form-label">Idade *</label>
+                                <input type="number" id="petAge" name="petAge" class="form-input" min="0" required>
+                                <span class="error-message" id="petAgeError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="petSize" class="form-label">Porte *</label>
+                                <select id="petSize" name="petSize" class="form-input" required>
+                                    <option value="">Selecione</option>
+                                    <option value="Pequeno">Pequeno</option>
+                                    <option value="Médio">Médio</option>
+                                    <option value="Grande">Grande</option>
+                                </select>
+                                <span class="error-message" id="petSizeError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Cadastrar Cliente</button>
+                </form>
+
+                <div class="success-message" id="successMessage">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="10" fill="#1F6764"/>
+                        <path d="M8 12L11 15L16 9" stroke="#FAFAF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Cliente cadastrado com sucesso!</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page: Clientes -->
+    <div class="page" id="page-clientes">
+        <section class="clients-section">
+            <div class="container">
+                <h2 class="section-title">Clientes Cadastrados</h2>
+                <div class="clients-grid" id="clientsGrid">
+                    <!-- Cards will be inserted here by JavaScript -->
+                </div>
+                <div class="empty-state" id="emptyState">
+                    <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="60" cy="60" r="50" fill="#E0E4E3" opacity="0.5"/>
+                        <path d="M60 30V70M40 50H80" stroke="#A3D5D3" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                    <p>Nenhum cliente cadastrado ainda.</p>
+                    <a href="#" class="btn-link" data-page="home">Cadastrar primeiro cliente</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page: Produtos -->
+    <div class="page" id="page-produtos">
+        <section class="products-section">
+            <div class="container">
+                <h2 class="section-title">Produtos</h2>
+                <div class="products-grid" id="productsGrid">
+                    <!-- Product cards will be inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="clientModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="#3A3A3A" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <h3 class="modal-title">Informações do Cliente</h3>
+            <div class="modal-body" id="modalBody">
+                <!-- Client details will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="8" fill="#1F6764"/>
+            <path d="M6 10L9 13L14 7" stroke="#FAFAF8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="toastMessage">Produto adicionado ao carrinho!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
