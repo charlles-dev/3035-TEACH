@@ -1,0 +1,77 @@
+/* Global Theme Styles */
+body.light {
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+body.dark {
+    background-color: #1a1a1a;
+    color: #f0f2f5;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    padding: 2.5rem;
+    border-radius: 16px;
+    background: white;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    margin: 2rem 0;
+    transition: all 0.3s ease;
+}
+
+.dark-mode .card {
+    background: #2a2a2a;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.toggle-btn {
+    background-color: #646cff;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 1rem;
+}
+
+.toggle-btn:hover {
+    background-color: #535bf2;
+    transform: translateY(-2px);
+}
+
+.toggle-btn:active {
+    transform: translateY(0);
+}
+
+.description {
+    max-width: 400px;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Force body transition for smooth effect */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+}
