@@ -1,0 +1,8 @@
+{
+  "name": "DevHub AI Explorer",
+  "description": "A comprehensive GitHub user explorer integrated with advanced Gemini AI tools for reasoning, image generation, and editing.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ]
+}
