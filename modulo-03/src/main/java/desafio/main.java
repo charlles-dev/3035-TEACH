@@ -21,7 +21,7 @@ public class main {
         {200, 5, 300}  // Difícil
     };
 
-    public static void main(String[] args) {
+    static void main() {
         int opcao = 0;
         do {
             exibirMenuPrincipal();
