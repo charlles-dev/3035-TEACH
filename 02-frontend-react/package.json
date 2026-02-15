@@ -1,0 +1,12 @@
+{
+  "name": "02-frontend-react-workspace",
+  "private": true,
+  "workspaces": [
+    "tarefa-*",
+    "desafio"
+  ],
+  "scripts": {
+    "dev:desafio": "npm run dev --workspace=@devhub-ai-explorer",
+    "build:desafio": "npm run build --workspace=@devhub-ai-explorer"
+  }
+}
