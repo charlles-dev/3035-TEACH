@@ -48,17 +48,72 @@ O diferencial deste portfólio está na aplicação prática de conceitos avanç
 
 ---
 
+---
+
+## 🗺️ Jornada de Aprendizado
+
+```mermaid
+---
+config:
+  theme: redux-dark-color
+---
+mindmap
+  root((🚀 3035TEACH<br/>Fullstack))
+    Frontend 🎨
+      M01: Fundamentos Web
+        HTML5, CSS3, JS
+      M02: React & TS
+        Hooks, Context, Vite
+    Backend Java ☕
+      M03: Lógica
+        Sintaxe, Coleções
+      M04: POO
+        Classes, SOLID
+    Backend Avançado ⚙️
+      M05: Persistência
+        SQL, JPA, Hibernate
+      M06: Spring Boot
+        API REST, Security
+    Consolidação 🏆
+      M07: Projeto Final
+        Arquitetura Fullstack
+```
+
+### 📅 Cronograma
+
+```mermaid
+gantt
+    title Cronograma de Formação Fullstack (6 Meses)
+    dateFormat  YYYY-MM-DD
+    axisFormat  %W
+    
+    section Frontend
+    M01 Fundamentos Web       :done,    m1, 2023-01-01, 3w
+    M02 React & TypeScript    :active,  m2, after m1, 4w
+    
+    section Backend Java
+    M03 Java Core             :         m3, after m2, 4w
+    M04 POO Avançada          :         m4, after m3, 4w
+    M05 Persistência & BD     :         m5, after m4, 4w
+    M06 Spring Boot           :         m6, after m5, 4w
+    
+    section Integração
+    M07 Projeto Final         :         m7, after m6, 3w
+```
+
+
 ## 📂 Estrutura dos Módulos
 
-| Módulo | Foco de Aprendizado | Projeto Prático |
-| :--- | :--- | :--- |
-| **M07** | **Arquitetura & Integração Final** | *Microserviço de Task Management Fullstack* |
-| **M06** | **Spring Boot & Security** | API RESTful com Autenticação JWT |
-| **M05** | **Persistência (JPA/Hibernate)** | DAO Genérico e Modelagem de Dados |
-| **M04** | **POO Avançada (Java)** | Sistema com Injeção de Dependência Manual |
-| **M03** | **Lógica & Algoritmos** | Estruturas de Dados em Java |
-| **M02** | **React & TypeScript** | Dashboard Interativo com Consumo de API |
-| **M01** | **Fundamentos Web** | Landing Pages Responsivas |
+| Status | Módulo | Foco de Aprendizado | Projeto Prático |
+| :---: | :--- | :--- | :--- |
+| ⏳ | [**M07 - Desafio Final**](./M07-Desafio-Final) | **Arquitetura & Integração Final** | *Microserviço de Task Management Fullstack* |
+| ⏳ | [**M06 - Spring Boot**](./M06-Backend-IV-Spring-Boot) | **Spring Boot & Security** | API RESTful com Autenticação JWT |
+| ⏳ | [**M05 - Banco de Dados**](./M05-Backend-III-Java-BD) | **Persistência (JPA/Hibernate)** | DAO Genérico e Modelagem de Dados |
+| 🟡 | [**M04 - POO Java**](./04-java-avancado) | **POO Avançada (Java)** | Sistema com Injeção de Dependência Manual |
+| 🟢 | [**M03 - Lógica Java**](./03-backend-java) | **Lógica & Algoritmos** | Estruturas de Dados em Java |
+| 🟢 | [**M02 - React**](./02-frontend-react) | **React & TypeScript** | Dashboard Interativo com Consumo de API |
+| 🟢 | [**M01 - Web Basics**](./01-fundamentos-web) | **Fundamentos Web** | Landing Pages Responsivas |
+
 
 ---
 
@@ -107,7 +162,7 @@ npm run dev
 
 Sugestões e feedbacks são sempre bem-vindos!
 
-- **Email**: [charlleshst@gmail.com](mailto:charlleshst@gmail.com)
+- **Email**: [charllesgst@gmail.com](mailto:charllesgst@gmail.com)
 - **LinkedIn**: [linkedin.com/in/charlles-augusto](https://linkedin.com/in/charlles-augusto)
 - **Portfólio**: [charlles.dev](https://charlles.dev)
 
