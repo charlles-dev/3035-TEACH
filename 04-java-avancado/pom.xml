@@ -13,6 +13,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <artifactId>modulo-03</artifactId>
+    <artifactId>04-java-avancado</artifactId>
 
 </project>

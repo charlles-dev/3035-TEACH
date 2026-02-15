@@ -6,8 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="modulo-03" />
-        <module name="modulo-04" />
+        <module name="03-backend-java" />
+        <module name="04-java-avancado" />
       </profile>
     </annotationProcessing>
   </component>
