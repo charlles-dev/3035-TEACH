@@ -13,6 +13,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <artifactId>03-backend-java</artifactId>
+    <artifactId>modulo-04</artifactId>
 
 </project>

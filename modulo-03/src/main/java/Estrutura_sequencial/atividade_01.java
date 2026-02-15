@@ -11,6 +11,7 @@ public class atividade_01 {
         int idade = sc.nextInt();
 
         System.out.println("Olá " + nome + " tudo bem? pelo que vi você tem " + idade + " anos");
+        sc.close();
     }
 
 }

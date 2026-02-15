@@ -11,5 +11,6 @@ public class atividade_02 {
         int n2 = sc.nextInt();
 
         System.out.println("Resultado:" + (n1 + n2));
+        sc.close();
     }
 }

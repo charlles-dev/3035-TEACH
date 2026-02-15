@@ -3,7 +3,7 @@ package desafio;
 import java.util.Scanner;
 import java.util.Random;
 
-public class main {
+public class Main {
     private static Scanner scanner = new Scanner(System.in);
     private static Random random = new Random();
     
@@ -21,7 +21,7 @@ public class main {
         {200, 5, 300}  // Difícil
     };
 
-    static void main() {
+    public static void main(String[] args) {
         int opcao = 0;
         do {
             exibirMenuPrincipal();

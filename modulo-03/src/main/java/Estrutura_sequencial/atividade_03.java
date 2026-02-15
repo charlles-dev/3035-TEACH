@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class atividade_03 {
     public static void main(String[] args) {
-        Locale.setDefault(new Locale("pt", "BR"));
+        Locale.setDefault(Locale.of("pt", "BR"));
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Informe seu salário: ");

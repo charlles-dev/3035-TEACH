@@ -53,47 +53,105 @@ O diferencial deste portfólio está na aplicação prática de conceitos avanç
 ## 🗺️ Jornada de Aprendizado
 
 ```mermaid
----
-config:
-  theme: redux-dark-color
----
-mindmap
-  root((🚀 3035TEACH<br/>Fullstack))
-    Frontend 🎨
-      M01: Fundamentos Web
-        HTML5, CSS3, JS
-      M02: React & TS
-        Hooks, Context, Vite
-    Backend Java ☕
-      M03: Lógica
-        Sintaxe, Coleções
-      M04: POO
-        Classes, SOLID
-    Backend Avançado ⚙️
-      M05: Persistência
-        SQL, JPA, Hibernate
-      M06: Spring Boot
-        API REST, Security
-    Consolidação 🏆
-      M07: Projeto Final
-        Arquitetura Fullstack
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "primaryTextColor": "#ffffff",
+    "primaryBorderColor": "#ffffff"
+  }
+}}%%
+flowchart LR
+
+    %% ===== CLASSES =====
+    classDef root fill:#0f172a,color:#ffffff,stroke:#c084fc,stroke-width:3px;
+
+    classDef frontend fill:#2dd4bf,color:#000000,stroke:#14b8a6,stroke-width:2px;
+    classDef backend fill:#fbbf24,color:#000000,stroke:#f59e0b,stroke-width:2px;
+    classDef advanced fill:#c084fc,color:#000000,stroke:#a855f7,stroke-width:2px;
+    classDef consolidacao fill:#4ade80,color:#000000,stroke:#22c55e,stroke-width:2px;
+
+    %% ===== ROOT =====
+    A["🚀 3035TEACH Fullstack"]:::root
+
+    %% ===== FRONTEND =====
+    subgraph F["🎨 Frontend"]
+        F1["M01: Fundamentos Web"]:::frontend
+        F2["HTML5, CSS3, JS"]:::frontend
+        F3["M02: React & TS"]:::frontend
+        F4["Hooks, Context, Vite"]:::frontend
+    end
+
+    %% ===== BACKEND JAVA =====
+    subgraph BJ["☕ Backend Java"]
+        B1["M03: Lógica"]:::backend
+        B2["Sintaxe, Coleções"]:::backend
+        B3["M04: POO"]:::backend
+        B4["Classes, SOLID"]:::backend
+    end
+
+    %% ===== BACKEND AVANÇADO =====
+    subgraph BA["⚙️ Backend Avançado"]
+        A1["M05: Persistência"]:::advanced
+        A2["SQL, JPA, Hibernate"]:::advanced
+        A3["M06: Spring Boot"]:::advanced
+        A4["API REST, Security"]:::advanced
+    end
+
+    %% ===== CONSOLIDAÇÃO =====
+    subgraph C["🏆 Consolidação"]
+        C1["M07: Projeto Final"]:::consolidacao
+        C2["Arquitetura Fullstack"]:::consolidacao
+    end
+
+    %% ===== FLOW =====
+    A --> F --> BJ --> BA --> C
+
+    F1 --> F2
+    F3 --> F4
+    B1 --> B2
+    B3 --> B4
+    A1 --> A2
+    A3 --> A4
+    C1 --> C2
 ```
 
 ### 📅 Cronograma
 
 ```mermaid
+%%{init: { 
+  'theme': 'base', 
+  'themeVariables': { 
+    'doneTaskBkgColor': '#22c55e', 
+    'doneTaskBorderColor': '#16a34a',
+    'doneTaskTextColor': '#000000',
+    'activeTaskBkgColor': '#3b82f6',
+    'activeTaskBorderColor': '#2563eb',
+    'taskBkgColor': '#64748b',
+    'taskBorderColor': '#475569',
+    
+    'critBorderColor': '#ef4444',
+    'critBkgColor': '#f87171',
+    
+    'titleColor': '#ffffff',
+    'sectionBkgColor': '#1e293b',
+    'sectionBkgColor2': '#0f172a',
+    'altSectionBkgColor': '#1e293b',
+    'gridColor': '#334155',
+    'todayLineColor': '#eab308'
+  }
+}}%%
 gantt
     title Cronograma de Formação Fullstack (6 Meses)
     dateFormat  YYYY-MM-DD
     axisFormat  %W
     
     section Frontend
-    M01 Fundamentos Web       :done,    m1, 2023-01-01, 3w
-    M02 React & TypeScript    :active,  m2, after m1, 4w
+    M01 Fundamentos Web       :done,  m1, 2023-01-01, 3w
+    M02 React & TypeScript    :done,  m2, after m1, 4w
     
     section Backend Java
-    M03 Java Core             :         m3, after m2, 4w
-    M04 POO Avançada          :         m4, after m3, 4w
+    M03 Java Core             :done,    m3, after m2, 4w
+    M04 POO Avançada          :active,  m4, after m3, 4w
     M05 Persistência & BD     :         m5, after m4, 4w
     M06 Spring Boot           :         m6, after m5, 4w
     
