@@ -2,16 +2,13 @@ package Desafio;
 
 import Desafio.batalha.Batalha;
 import Desafio.eventos.BauMisterioso;
-import Desafio.eventos.Evento;
 import Desafio.eventos.FonteSagrada;
 import Desafio.personagem.*;
 import Desafio.utilitarios.ConsoleUtils;
 import Desafio.utilitarios.GeradorInimigos;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Jogo {
@@ -31,7 +28,8 @@ public class Jogo {
 
     private void carregarRanking() {
         File file = new File(RANKING_FILE);
-        if (!file.exists()) return;
+        if (!file.exists())
+            return;
 
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String linha;
@@ -125,7 +123,8 @@ public class Jogo {
         jogador.setOuro(20); // Começa com 20 de ouro
         nivelDificuldade = 1;
 
-        System.out.println("\nHerói criado com sucesso! " + ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " o " + jogador.getClasse() + ".");
+        System.out.println("\nHerói criado com sucesso! " + ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET
+                + " o " + jogador.getClasse() + ".");
         ConsoleUtils.pausar(2000);
 
         loopDeAventura();
@@ -137,7 +136,8 @@ public class Jogo {
         while (emAventura && jogador.estaVivo()) {
             ConsoleUtils.limparConsole();
             System.out.println(ConsoleUtils.YELLOW + "----------- ACAMPAMENTO -----------" + ConsoleUtils.RESET);
-            System.out.println(ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " | " + jogador.getClasse());
+            System.out
+                    .println(ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " | " + jogador.getClasse());
             ConsoleUtils.exibirBarra("Vida", jogador.getVida(), jogador.getVidaMaxima(), ConsoleUtils.GREEN);
             ConsoleUtils.exibirBarra("Mana", jogador.getMana(), jogador.getManaMaxima(), ConsoleUtils.BLUE);
             System.out.println("Inimigos derrotados: " + inimigosDerrotados);
@@ -159,14 +159,16 @@ public class Jogo {
                         inimigosDerrotados++;
                         int ouroDropado = 10 + (int) (Math.random() * nivelDificuldade * 5);
                         jogador.adicionarOuro(ouroDropado);
-                        System.out.println("Você encontrou " + ConsoleUtils.YELLOW + ouroDropado + " de ouro" + ConsoleUtils.RESET + " no corpo do inimigo!");
+                        System.out.println("Você encontrou " + ConsoleUtils.YELLOW + ouroDropado + " de ouro"
+                                + ConsoleUtils.RESET + " no corpo do inimigo!");
 
                         // Aumenta dificuldade a cada 2 inimigos
                         if (inimigosDerrotados % 2 == 0) {
                             nivelDificuldade++;
-                            System.out.println(ConsoleUtils.RED + "Os inimigos estão ficando mais fortes..." + ConsoleUtils.RESET);
+                            System.out.println(
+                                    ConsoleUtils.RED + "Os inimigos estão ficando mais fortes..." + ConsoleUtils.RESET);
                         }
-                        
+
                         ConsoleUtils.pausar(1500);
 
                         // Chance de evento aleatório após batalha
@@ -205,7 +207,8 @@ public class Jogo {
         System.out.println("\n" + ConsoleUtils.RED + "==================================" + ConsoleUtils.RESET);
         System.out.println(ConsoleUtils.RED + "            GAME OVER             " + ConsoleUtils.RESET);
         System.out.println(ConsoleUtils.RED + "==================================" + ConsoleUtils.RESET);
-        System.out.println("O herói " + ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " pereceu em combate.");
+        System.out.println(
+                "O herói " + ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " pereceu em combate.");
         System.out.println("Inimigos derrotados: " + inimigosDerrotados);
 
         salvarPontuacao();
@@ -233,7 +236,8 @@ public class Jogo {
             // Estilo mais Junior: em vez de Streams e Lambdas, usamos for-each clássico.
             // É mais verboso e fácil de ler para iniciantes, mas menos elegante.
             for (Map.Entry<String, Integer> entry : ranking.entrySet()) {
-                System.out.println(ConsoleUtils.GREEN + entry.getKey() + ConsoleUtils.RESET + " - " + entry.getValue() + " vitórias");
+                System.out.println(ConsoleUtils.GREEN + entry.getKey() + ConsoleUtils.RESET + " - " + entry.getValue()
+                        + " vitórias");
             }
         }
         System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);
