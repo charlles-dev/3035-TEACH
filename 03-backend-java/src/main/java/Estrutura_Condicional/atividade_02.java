@@ -5,13 +5,10 @@ import java.util.Scanner;
 public class atividade_02 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         System.out.println("Digite o nome: ");
         String nome = sc.nextLine();
-
         System.out.println("Digite o sexo (M/F): ");
         String sexo = sc.nextLine().toUpperCase();
-
         System.out.println("Digite o estado civil: ");
         String estadoCivil = sc.nextLine().toUpperCase();
 
@@ -22,7 +19,6 @@ public class atividade_02 {
         } else {
             System.out.println("Dados registrados para " + nome + ".");
         }
-
         sc.close();
     }
 }

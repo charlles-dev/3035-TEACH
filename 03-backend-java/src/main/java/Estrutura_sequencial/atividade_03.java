@@ -6,13 +6,11 @@ import java.util.Scanner;
 public class atividade_03 {
     public static void main(String[] args) {
         Locale.setDefault(Locale.of("pt", "BR"));
-        Scanner sc = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Digite o seu salário: ");
+        double salario = scanner.nextDouble();
 
-        System.out.print("Informe seu salário: ");
-        double salario = sc.nextDouble();
-
-        System.out.printf("Salário: %.2f%n", salario);
-
-        sc.close();
+        System.out.println("O seu salário formatado é: R$ " + String.format("%.2f", salario));
+        scanner.close();
     }
 }

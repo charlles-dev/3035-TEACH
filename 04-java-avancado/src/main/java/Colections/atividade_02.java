@@ -1,41 +1,45 @@
 package Colections;
+
 import java.util.HashSet;
+import java.util.Iterator;
 
 public class atividade_02 {
     public static void main(String[] args) {
-        // Cria um HashSet de cores e adicione pelo menos 5 cores a ele.
+        // Cria um HashSet de Strings para armazenar nomes de cores.
         HashSet<String> cores = new HashSet<>();
         cores.add("Vermelho");
         cores.add("Verde");
         cores.add("Azul");
         cores.add("Amarelo");
-        cores.add("Preto");
 
-        // Imprime o tamanho do HashSet.
-        System.out.println("Tamanho do HashSet: " + cores.size());
+        // Tenta adicionar uma cor já existente no conjunto e explico o que acontece.
+        boolean adicionou = cores.add("Verde");
+        System.out.println("Tentativa de adicionar 'Verde' novamente. Sucesso? " + adicionou);
+        // Explicação: O método 'add' retorna false porque HashSets não permitem
+        // elementos duplicados.
+        // A cor 'Verde' já estava no conjunto.
 
-        // Tenta adicionar uma cor que já existe no conjunto.
-        // Como o HashSet lida com elementos duplicados? Ele simplesmente ignora a adição e retorna false.
-        boolean adicionou = cores.add("Azul");
-        System.out.println("Tentou adicionar 'Azul' novamente? " + (adicionou ? "Sim" : "Não (Já existe)"));
-        System.out.println("Tamanho após tentar adicionar duplicata: " + cores.size());
+        // Imprime o conjunto completo de cores.
+        System.out.println("Conjunto de cores: " + cores);
 
-        // Remove uma cor do conjunto.
-        cores.remove("Preto");
-        System.out.println("Cor 'Preto' removida.");
-
-        // Verifique se uma cor específica está no conjunto.
-        String corParaVerificar = "Verde";
+        // Verifica se uma cor específica está no conjunto.
+        String corParaVerificar = "Azul";
         if (cores.contains(corParaVerificar)) {
             System.out.println("A cor " + corParaVerificar + " está no conjunto.");
         } else {
-            System.out.println("A cor " + corParaVerificar + " não está no conjunto.");
+            System.out.println("A cor " + corParaVerificar + " NÃO está no conjunto.");
         }
 
-        // Itere sobre o conjunto e imprima todas as cores.
-        System.out.println("Lista de cores no conjunto:");
-        for (String cor : cores) {
-            System.out.println(cor);
+        // Remove uma cor do conjunto e depois imprime o conjunto atualizado.
+        cores.remove("Amarelo");
+        System.out.println("Conjunto após remover 'Amarelo': " + cores);
+
+        // Usa um Iterator para percorrer os elementos do HashSet e imprima cada um em
+        // uma nova linha.
+        System.out.println("Iterando sobre as cores:");
+        Iterator<String> iterator = cores.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
         }
     }
 }

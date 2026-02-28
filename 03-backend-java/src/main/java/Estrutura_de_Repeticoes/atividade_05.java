@@ -5,17 +5,15 @@ import java.util.Scanner;
 public class atividade_05 {
     static void main() {
         Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Digite um número: ");
+        System.out.print("Digite um número limite: ");
         int numero = scanner.nextInt();
+        System.out.println("Números pares entre 1 e " + numero + ":");
 
-        System.out.println("Números pares até " + numero + ":");
-        for (int i = 0; i <= numero; i++) {
+        for (int i = 1; i <= numero; i++) {
             if (i % 2 == 0) {
-                System.out.println(i);
+                System.out.print(i + " ");
             }
         }
-
         scanner.close();
     }
 }

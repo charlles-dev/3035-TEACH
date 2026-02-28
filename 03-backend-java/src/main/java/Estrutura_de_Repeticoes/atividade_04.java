@@ -8,16 +8,13 @@ public class atividade_04 {
         int contadorMaioresDe18 = 0;
 
         for (int i = 1; i <= 5; i++) {
-            System.out.print("Digite a idade da " + i + "Âª pessoa: ");
+            System.out.print("Digite a idade da pessoa " + i + ": ");
             int idade = scanner.nextInt();
-
-            if (idade > 18) {
+            if (idade >= 18) {
                 contadorMaioresDe18++;
             }
         }
-
-        System.out.println("Total de pessoas com mais de 18 anos: " + contadorMaioresDe18);
-
+        System.out.println("Número de pessoas maiores de 18 anos: " + contadorMaioresDe18);
         scanner.close();
     }
 }

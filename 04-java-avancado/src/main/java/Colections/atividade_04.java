@@ -28,15 +28,18 @@ public class atividade_04 {
         // Converte o HashSet de volta para um ArrayList.
         List<String> listaResultante = new ArrayList<>(setPalavras);
 
-        //  Imprima os elementos do ArrayList resultante.
+        // Imprima os elementos do ArrayList resultante.
         System.out.println("\nArrayList resultante (de volta do HashSet):");
         System.out.println(listaResultante);
 
         // Observe se a ordem dos elementos muda durante as conversões.
         /*
-         * Observação: A ordem dos elementos pode mudar ao converter o ArrayList para HashSet,
-         * pois o HashSet não garante a ordem de inserção. Ao converter de volta para ArrayList,
-         * a nova lista manterá a ordem que os elementos tinham no HashSet no momento da conversão,
+         * Observação: A ordem dos elementos pode mudar ao converter o ArrayList para
+         * HashSet,
+         * pois o HashSet não garante a ordem de inserção. Ao converter de volta para
+         * ArrayList,
+         * a nova lista manterá a ordem que os elementos tinham no HashSet no momento da
+         * conversão,
          * que pode ser diferente da ordem original do primeiro ArrayList.
          */
     }

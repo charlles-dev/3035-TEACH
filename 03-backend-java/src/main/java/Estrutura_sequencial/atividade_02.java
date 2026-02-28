@@ -4,13 +4,12 @@ import java.util.Scanner;
 
 public class atividade_02 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
         System.out.println("Digite o primeiro numero: ");
-        int n1 = sc.nextInt();
+        int num1 = teclado.nextInt();
         System.out.println("Digite o segundo numero: ");
-        int n2 = sc.nextInt();
-
-        System.out.println("Resultado:" + (n1 + n2));
-        sc.close();
+        int num2 = teclado.nextInt();
+        System.out.println("Resultado:" + (num1 + num2));
+        teclado.close();
     }
 }

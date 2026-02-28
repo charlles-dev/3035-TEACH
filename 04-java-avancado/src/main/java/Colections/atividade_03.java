@@ -10,7 +10,7 @@ public class atividade_03 {
         HashSet<Integer> hashSet = new HashSet<>();
 
         // Adiciona os mesmos números em ambas as coleções.
-        int[] numeros = {50, 10, 30, 20, 40};
+        int[] numeros = { 50, 10, 30, 20, 40 };
 
         for (int num : numeros) {
             arrayList.add(num);
@@ -26,9 +26,12 @@ public class atividade_03 {
 
         // Explicação da diferença entre a ordem dos elementos nos dois:
         /*
-         * O ArrayList mantém a ordem de inserção dos elementos, funcionando como uma lista indexada.
-         * O HashSet não garante nenhuma ordem específica para os elementos, pois utiliza uma tabela hash
-         * para armazenamento, o que prioriza a performance de busca e evita duplicatas, mas perde a
+         * O ArrayList mantém a ordem de inserção dos elementos, funcionando como uma
+         * lista indexada.
+         * O HashSet não garante nenhuma ordem específica para os elementos, pois
+         * utiliza uma tabela hash
+         * para armazenamento, o que prioriza a performance de busca e evita duplicatas,
+         * mas perde a
          * informação da sequência em que os itens foram adicionados.
          */
     }

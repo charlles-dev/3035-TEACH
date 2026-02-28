@@ -4,34 +4,36 @@ import java.util.ArrayList;
 
 public class atividade_01 {
     public static void main(String[] args) {
-        // Cria um ArrayList de nomes de frutas e adicione pelo menos 5 nomes de frutas a ele.
+        // Cria um ArrayList de Strings para armazenar nomes de frutas.
         ArrayList<String> frutas = new ArrayList<>();
         frutas.add("Maçã");
         frutas.add("Banana");
-        frutas.add("Morango");
+        frutas.add("Laranja");
         frutas.add("Uva");
-        frutas.add("Abacaxi");
+        frutas.add("Manga");
 
-        // Imprime o tamanho do ArrayList.
-        System.out.println("Tamanho do ArrayList: " + frutas.size());
+        // Imprime a lista completa de frutas.
+        System.out.println("Lista de frutas: " + frutas);
 
-        // Imprime o terceiro elemento do ArrayList.
-        System.out.println("Terceiro elemento: " + frutas.get(2));
+        // Acessa e imprime uma fruta específica usando seu índice.
+        System.out.println("A terceira fruta da lista é: " + frutas.get(2));
 
-        // Remove a primeira fruta da lista.
-        frutas.remove(0);
-        System.out.println("Primeira fruta removida.");
+        // Remove uma fruta da lista pelo valor.
+        frutas.remove("Banana");
+        System.out.println("Lista após remover a Banana: " + frutas);
 
-        // Verifica se uma determinada fruta existe na lista.
-        String frutaParaVerificar = "Morango";
+        // Verifica se a lista contém uma fruta específica e imprime um aviso se sim ou
+        // se não.
+        String frutaParaVerificar = "Maçã";
         if (frutas.contains(frutaParaVerificar)) {
-            System.out.println("A fruta " + frutaParaVerificar + " existe na lista.");
+            System.out.println("A lista contém a fruta: " + frutaParaVerificar);
         } else {
-            System.out.println("A fruta " + frutaParaVerificar + " não existe na lista.");
+            System.out.println("A lista não contém a fruta: " + frutaParaVerificar);
         }
 
-        // Itera sobre a lista e imprima todas as frutas.
-        System.out.println("Lista de frutas:");
+        // Usa um loop "for-each" para iterar sobre os elementos da lista e imprimi-los
+        // um por linha.
+        System.out.println("Imprimindo cada fruta em uma nova linha:");
         for (String fruta : frutas) {
             System.out.println(fruta);
         }

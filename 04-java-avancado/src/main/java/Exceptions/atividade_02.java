@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class atividade_02 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         try {
             System.out.print("Digite uma string para converter em inteiro: ");
             String entrada = scanner.nextLine();
 
             // Para testar o NullPointerException, poderíamos forçar a entrada a ser null
             // No entanto, o Scanner.nextLine() geralmente não retorna null.
-            // Vou adicionar um pequeno bloco para demonstrar como lidar com null se necessário.
+            // Vou adicionar um pequeno bloco para demonstrar como lidar com null se
+            // necessário.
             int numero = converterParaInteiro(entrada);
             System.out.println("Número convertido com sucesso: " + numero);
 
