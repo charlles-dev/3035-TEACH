@@ -167,8 +167,8 @@ gantt
 | ⏳ | [**M07 - Desafio Final**](./M07-Desafio-Final) | **Arquitetura & Integração Final** | *Microserviço de Task Management Fullstack* |
 | ⏳ | [**M06 - Spring Boot**](./M06-Backend-IV-Spring-Boot) | **Spring Boot & Security** | API RESTful com Autenticação JWT |
 | ⏳ | [**M05 - Banco de Dados**](./M05-Backend-III-Java-BD) | **Persistência (JPA/Hibernate)** | DAO Genérico e Modelagem de Dados |
-| 🟡 | [**M04 - POO Java**](./04-java-avancado) | **POO Avançada (Java)** | Sistema com Injeção de Dependência Manual |
-| 🟢 | [**M03 - Lógica Java**](./03-backend-java) | **Lógica & Algoritmos** | Estruturas de Dados em Java |
+| 🟡 | [**M04 - POO Java**](04-java-poo) | **POO Avançada (Java)** | Sistema com Injeção de Dependência Manual |
+| 🟢 | [**M03 - Lógica Java**](03-java-basico) | **Lógica & Algoritmos** | Estruturas de Dados em Java |
 | 🟢 | [**M02 - React**](./02-frontend-react) | **React & TypeScript** | Dashboard Interativo com Consumo de API |
 | 🟢 | [**M01 - Web Basics**](./01-fundamentos-web) | **Fundamentos Web** | Landing Pages Responsivas |
 
