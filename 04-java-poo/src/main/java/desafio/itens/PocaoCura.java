@@ -1,6 +1,6 @@
-package desafio_poo.itens;
+package desafio.itens;
 
-import desafio_poo.personagem.Personagem;
+import desafio.personagem.Personagem;
 
 public class PocaoCura extends Item {
     private int cura;

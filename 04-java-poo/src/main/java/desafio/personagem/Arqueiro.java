@@ -1,4 +1,4 @@
-package desafio_poo.personagem;
+package desafio.personagem;
 
 public class Arqueiro extends Personagem {
     public Arqueiro(String nome) {

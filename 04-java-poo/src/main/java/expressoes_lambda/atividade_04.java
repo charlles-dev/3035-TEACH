@@ -1,4 +1,4 @@
-package Expressões_Lambdas;
+package expressoes_lambda;
 
 import java.util.List;
 

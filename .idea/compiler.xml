@@ -11,4 +11,9 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="3035-TEACH" options="--enable-native-access=ALL-UNNAMED" />
+    </option>
+  </component>
 </project>

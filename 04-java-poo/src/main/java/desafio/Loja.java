@@ -1,15 +1,15 @@
-package desafio_poo;
+package desafio;
 
-import desafio_poo.itens.PocaoCura;
-import desafio_poo.personagem.Personagem;
-import desafio_poo.utilitarios.ConsoleUtils;
+import desafio.itens.PocaoCura;
+import desafio.personagem.Personagem;
+import desafio.utilitarios.ConsoleUtils;
 
 public class Loja {
     public static void visitar(Personagem jogador) {
         boolean naLoja = true;
 
         while (naLoja) {
-            int escolha = desafio_poo.utilitarios.MenuInterativo.escolherOpcao(() -> {
+            int escolha = desafio.utilitarios.MenuInterativo.escolherOpcao(() -> {
                 System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);
                 System.out.println(ConsoleUtils.CYAN + "        LOJA DO MERCADOR          " + ConsoleUtils.RESET);
                 System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);

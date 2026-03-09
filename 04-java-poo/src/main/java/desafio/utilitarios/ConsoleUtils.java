@@ -1,4 +1,4 @@
-package desafio_poo.utilitarios;
+package desafio.utilitarios;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
-package desafio_poo.utilitarios;
+package desafio.utilitarios;
 
-import desafio_poo.personagem.Inimigo;
+import desafio.personagem.Inimigo;
 import java.util.Random;
 
 public class GeradorInimigos {

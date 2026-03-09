@@ -1,8 +1,8 @@
-package desafio_poo.batalha;
+package desafio.batalha;
 
-import desafio_poo.personagem.Inimigo;
-import desafio_poo.personagem.Personagem;
-import desafio_poo.utilitarios.ConsoleUtils;
+import desafio.personagem.Inimigo;
+import desafio.personagem.Personagem;
+import desafio.utilitarios.ConsoleUtils;
 
 public class Batalha {
     private Personagem jogador;
@@ -66,7 +66,7 @@ public class Batalha {
         boolean acaoValida = false;
 
         while (!acaoValida) {
-            int escolha = desafio_poo.utilitarios.MenuInterativo.escolherOpcao(() -> {
+            int escolha = desafio.utilitarios.MenuInterativo.escolherOpcao(() -> {
                 System.out.println("--- Turno " + turno + " ---");
                 exibirStatus();
                 System.out.println("Sua vez! O que vai fazer?");

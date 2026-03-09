@@ -1,4 +1,4 @@
-package Expressões_Lambdas;
+package expressoes_lambda;
 
 import java.util.function.Predicate;
 import java.util.stream.IntStream;

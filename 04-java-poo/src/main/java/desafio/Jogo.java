@@ -1,12 +1,12 @@
-package desafio_poo;
+package desafio;
 
-import desafio_poo.batalha.Batalha;
-import desafio_poo.eventos.BauMisterioso;
-import desafio_poo.eventos.FonteSagrada;
-import desafio_poo.personagem.*;
-import desafio_poo.utilitarios.ConsoleUtils;
-import desafio_poo.utilitarios.GeradorInimigos;
-import desafio_poo.utilitarios.MenuInterativo;
+import desafio.batalha.Batalha;
+import desafio.eventos.BauMisterioso;
+import desafio.eventos.FonteSagrada;
+import desafio.personagem.*;
+import desafio.utilitarios.ConsoleUtils;
+import desafio.utilitarios.GeradorInimigos;
+import desafio.utilitarios.MenuInterativo;
 
 import java.io.*;
 import java.util.HashMap;

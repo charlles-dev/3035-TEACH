@@ -1,6 +1,6 @@
-package desafio_poo;
+package desafio;
 
-import desafio_poo.utilitarios.MenuInterativo;
+import desafio.utilitarios.MenuInterativo;
 
 /**
  * Ponto de entrada da aplicação.
@@ -14,7 +14,7 @@ public class Main {
 
         // Antes de ter o MenuInterativo funcionando, usamos o scanner nativo via
         // ConsoleUtils
-        int modo = desafio_poo.utilitarios.ConsoleUtils.lerInteiro("Sua escolha: ");
+        int modo = desafio.utilitarios.ConsoleUtils.lerInteiro("Sua escolha: ");
         if (modo == 1) {
             MenuInterativo.setModoSetas(true);
         } else {

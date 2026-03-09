@@ -22,7 +22,7 @@ Para jogar via terminal / prompt de comando, siga os passos abaixo:
    cd 04-java-poo
 
 2. Compile e execute o jogo usando o Maven:
-   mvn compile exec:java -Dexec.mainClass="desafio_poo.Main"
+   mvn compile exec:java -Dexec.mainClass="desafio.Main"
 
 💡 Dica: No IntelliJ IDEA ou VS Code, basta abrir o projeto e executar a 
 classe `Main.java`. A IDE gerenciará as dependências automaticamente (JLine3).
