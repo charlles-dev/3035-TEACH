@@ -1,6 +1,6 @@
 package desafio_poo.itens;
 
-import Desafio.personagem.Personagem;
+import desafio_poo.personagem.Personagem;
 
 public abstract class Item {
     protected String nome;

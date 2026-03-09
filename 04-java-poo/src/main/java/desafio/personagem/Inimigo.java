@@ -1,6 +1,6 @@
 package desafio_poo.personagem;
 
-import Desafio.itens.PocaoCura;
+import desafio_poo.itens.PocaoCura;
 
 public class Inimigo extends Personagem {
 

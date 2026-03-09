@@ -1,11 +1,12 @@
-package Desafio;
+package desafio_poo;
 
-import Desafio.batalha.Batalha;
-import Desafio.eventos.BauMisterioso;
-import Desafio.eventos.FonteSagrada;
-import Desafio.personagem.*;
-import Desafio.utilitarios.ConsoleUtils;
-import Desafio.utilitarios.GeradorInimigos;
+import desafio_poo.batalha.Batalha;
+import desafio_poo.eventos.BauMisterioso;
+import desafio_poo.eventos.FonteSagrada;
+import desafio_poo.personagem.*;
+import desafio_poo.utilitarios.ConsoleUtils;
+import desafio_poo.utilitarios.GeradorInimigos;
+import desafio_poo.utilitarios.MenuInterativo;
 
 import java.io.*;
 import java.util.HashMap;
@@ -59,15 +60,11 @@ public class Jogo {
         boolean jogoAtivo = true;
 
         while (jogoAtivo) {
-            ConsoleUtils.limparConsole();
-            System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);
-            System.out.println(ConsoleUtils.CYAN + "      ARENA DOS CAMPEÕES RPG      " + ConsoleUtils.RESET);
-            System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);
-            System.out.println("1 - Novo Jogo");
-            System.out.println("2 - Ver Ranking");
-            System.out.println("3 - Sair");
-
-            int escolha = ConsoleUtils.lerInteiro("Opção: ");
+            int escolha = MenuInterativo.escolherOpcao(() -> {
+                System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);
+                System.out.println(ConsoleUtils.CYAN + "      ARENA DOS CAMPEÕES RPG      " + ConsoleUtils.RESET);
+                System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);
+            }, "Novo Jogo", "Ver Ranking", "Sair");
 
             switch (escolha) {
                 case 1:
@@ -77,7 +74,7 @@ public class Jogo {
                     exibirRanking();
                     break;
                 case 3:
-                    System.out.println("Obrigado por jogar!");
+                    ConsoleUtils.imprimirDigitando("Obrigado por jogar!");
                     salvarRankingEmArquivo();
                     jogoAtivo = false;
                     break;
@@ -92,14 +89,18 @@ public class Jogo {
         ConsoleUtils.limparConsole();
         String nome = ConsoleUtils.lerString("Qual o nome do seu herói? ");
 
-        System.out.println("\nEscolha sua classe:");
-        System.out.println(ConsoleUtils.GREEN + "1 - Guerreiro (Vida e defesa altas)" + ConsoleUtils.RESET);
-        System.out.println(ConsoleUtils.PURPLE + "2 - Mago (Ataque muito alto, vida baixa)" + ConsoleUtils.RESET);
-        System.out.println(ConsoleUtils.BLUE + "3 - Arqueiro (Equilibrado)" + ConsoleUtils.RESET);
+        System.out.println();
 
         boolean classeEscolhida = false;
         while (!classeEscolhida) {
-            int r = ConsoleUtils.lerInteiro("Sua escolha: ");
+            int r = MenuInterativo.escolherOpcao(() -> {
+                System.out.println(ConsoleUtils.YELLOW + "\n==================================" + ConsoleUtils.RESET);
+                System.out.println("Escolha sua classe:");
+            },
+                    ConsoleUtils.GREEN + "Guerreiro" + ConsoleUtils.RESET + " (Vida e defesa altas)",
+                    ConsoleUtils.PURPLE + "Mago" + ConsoleUtils.RESET + "      (Ataque muito alto, vida baixa)",
+                    ConsoleUtils.BLUE + "Arqueiro" + ConsoleUtils.RESET + "  (Equilibrado)");
+
             switch (r) {
                 case 1:
                     jogador = new Guerreiro(nome);
@@ -123,8 +124,10 @@ public class Jogo {
         jogador.setOuro(20); // Começa com 20 de ouro
         nivelDificuldade = 1;
 
-        System.out.println("\nHerói criado com sucesso! " + ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET
-                + " o " + jogador.getClasse() + ".");
+        ConsoleUtils.imprimirDigitando(
+                "\nHerói criado com sucesso! " + ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET
+                        + " o " + jogador.getClasse() + ".",
+                20);
         ConsoleUtils.pausar(2000);
 
         loopDeAventura();
@@ -134,20 +137,17 @@ public class Jogo {
         boolean emAventura = true;
 
         while (emAventura && jogador.estaVivo()) {
-            ConsoleUtils.limparConsole();
-            System.out.println(ConsoleUtils.YELLOW + "----------- ACAMPAMENTO -----------" + ConsoleUtils.RESET);
-            System.out
-                    .println(ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " | " + jogador.getClasse());
-            ConsoleUtils.exibirBarra("Vida", jogador.getVida(), jogador.getVidaMaxima(), ConsoleUtils.GREEN);
-            ConsoleUtils.exibirBarra("Mana", jogador.getMana(), jogador.getManaMaxima(), ConsoleUtils.BLUE);
-            System.out.println("Inimigos derrotados: " + inimigosDerrotados);
-            System.out.println("Ouro: " + ConsoleUtils.YELLOW + jogador.getOuro() + ConsoleUtils.RESET);
-            System.out.println(ConsoleUtils.YELLOW + "-----------------------------------" + ConsoleUtils.RESET);
-            System.out.println("1 - Procurar Próxima Batalha");
-            System.out.println("2 - Ir à Loja");
-            System.out.println("3 - Fugir (Voltar ao Menu Principal)");
-
-            int acao = ConsoleUtils.lerInteiro("O que fazer? ");
+            int acao = MenuInterativo.escolherOpcao(() -> {
+                System.out.println(ConsoleUtils.YELLOW + "----------- ACAMPAMENTO -----------" + ConsoleUtils.RESET);
+                System.out
+                        .println(ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " | "
+                                + jogador.getClasse());
+                ConsoleUtils.exibirBarra("Vida", jogador.getVida(), jogador.getVidaMaxima(), ConsoleUtils.GREEN);
+                ConsoleUtils.exibirBarra("Mana", jogador.getMana(), jogador.getManaMaxima(), ConsoleUtils.BLUE);
+                System.out.println("Inimigos derrotados: " + inimigosDerrotados);
+                System.out.println("Ouro: " + ConsoleUtils.YELLOW + jogador.getOuro() + ConsoleUtils.RESET);
+                System.out.println(ConsoleUtils.YELLOW + "-----------------------------------" + ConsoleUtils.RESET);
+            }, "Procurar Próxima Batalha", "Ir à Loja", "Fugir (Voltar ao Menu Principal)");
 
             switch (acao) {
                 case 1:
@@ -159,13 +159,14 @@ public class Jogo {
                         inimigosDerrotados++;
                         int ouroDropado = 10 + (int) (Math.random() * nivelDificuldade * 5);
                         jogador.adicionarOuro(ouroDropado);
-                        System.out.println("Você encontrou " + ConsoleUtils.YELLOW + ouroDropado + " de ouro"
-                                + ConsoleUtils.RESET + " no corpo do inimigo!");
+                        ConsoleUtils
+                                .imprimirDigitando("Você encontrou " + ConsoleUtils.YELLOW + ouroDropado + " de ouro"
+                                        + ConsoleUtils.RESET + " no corpo do inimigo!");
 
                         // Aumenta dificuldade a cada 2 inimigos
                         if (inimigosDerrotados % 2 == 0) {
                             nivelDificuldade++;
-                            System.out.println(
+                            ConsoleUtils.imprimirDigitando(
                                     ConsoleUtils.RED + "Os inimigos estão ficando mais fortes..." + ConsoleUtils.RESET);
                         }
 
@@ -191,7 +192,7 @@ public class Jogo {
                     Loja.visitar(jogador);
                     break;
                 case 3:
-                    System.out.println("Sua aventura termina aqui por enquanto.");
+                    ConsoleUtils.imprimirDigitando("Sua aventura termina aqui por enquanto.");
                     salvarPontuacao();
                     emAventura = false;
                     ConsoleUtils.pausar(2000);
@@ -207,8 +208,8 @@ public class Jogo {
         System.out.println("\n" + ConsoleUtils.RED + "==================================" + ConsoleUtils.RESET);
         System.out.println(ConsoleUtils.RED + "            GAME OVER             " + ConsoleUtils.RESET);
         System.out.println(ConsoleUtils.RED + "==================================" + ConsoleUtils.RESET);
-        System.out.println(
-                "O herói " + ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " pereceu em combate.");
+        ConsoleUtils.imprimirDigitando(
+                "O herói " + ConsoleUtils.CYAN + jogador.getNome() + ConsoleUtils.RESET + " pereceu em combate.", 30);
         System.out.println("Inimigos derrotados: " + inimigosDerrotados);
 
         salvarPontuacao();
@@ -219,7 +220,7 @@ public class Jogo {
         // Se a pontuação (inimigosDerrotados) for maior que a anterior guarda essa.
         int pontuacaoAnterior = ranking.getOrDefault(jogador.getNome(), 0);
         if (inimigosDerrotados > pontuacaoAnterior) {
-            System.out.println(ConsoleUtils.YELLOW + "\nNOVO RECORDE PESSOAL!" + ConsoleUtils.RESET);
+            ConsoleUtils.imprimirDigitando(ConsoleUtils.YELLOW + "\nNOVO RECORDE PESSOAL!" + ConsoleUtils.RESET, 20);
             ranking.put(jogador.getNome(), inimigosDerrotados);
             salvarRankingEmArquivo();
         }

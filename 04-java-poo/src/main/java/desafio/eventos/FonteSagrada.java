@@ -1,7 +1,7 @@
 package desafio_poo.eventos;
 
-import Desafio.personagem.Personagem;
-import Desafio.utilitarios.ConsoleUtils;
+import desafio_poo.personagem.Personagem;
+import desafio_poo.utilitarios.ConsoleUtils;
 
 public class FonteSagrada implements Evento {
     @Override

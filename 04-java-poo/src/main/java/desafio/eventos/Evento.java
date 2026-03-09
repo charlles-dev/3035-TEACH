@@ -1,6 +1,6 @@
 package desafio_poo.eventos;
 
-import Desafio.personagem.Personagem;
+import desafio_poo.personagem.Personagem;
 
 public interface Evento {
     void executar(Personagem jogador);

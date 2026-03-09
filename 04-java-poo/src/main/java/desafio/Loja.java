@@ -1,26 +1,25 @@
-package Desafio;
+package desafio_poo;
 
-import Desafio.itens.PocaoCura;
-import Desafio.personagem.Personagem;
-import Desafio.utilitarios.ConsoleUtils;
+import desafio_poo.itens.PocaoCura;
+import desafio_poo.personagem.Personagem;
+import desafio_poo.utilitarios.ConsoleUtils;
 
 public class Loja {
     public static void visitar(Personagem jogador) {
         boolean naLoja = true;
 
         while (naLoja) {
-            ConsoleUtils.limparConsole();
-            System.out.println("==================================");
-            System.out.println("        LOJA DO MERCADOR          ");
-            System.out.println("==================================");
-            System.out.println("Seu Ouro: " + jogador.getOuro());
-            System.out.println("Inventário: " + jogador.getInventario().size() + " Item(ns)");
-            System.out.println("\nBem-vindo! O que deseja comprar?");
-            System.out.println("1 - Poção de Cura (10 Ouro)");
-            System.out.println("2 - Descansar (Recupera toda vida e mana) (25 Ouro)");
-            System.out.println("3 - Sair da Loja");
-
-            int escolha = ConsoleUtils.lerInteiro("\nEscolha: ");
+            int escolha = desafio_poo.utilitarios.MenuInterativo.escolherOpcao(() -> {
+                System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);
+                System.out.println(ConsoleUtils.CYAN + "        LOJA DO MERCADOR          " + ConsoleUtils.RESET);
+                System.out.println(ConsoleUtils.YELLOW + "==================================" + ConsoleUtils.RESET);
+                System.out.println("Seu Ouro: " + ConsoleUtils.YELLOW + jogador.getOuro() + ConsoleUtils.RESET);
+                System.out.println("Inventário: " + jogador.getInventario().size() + " Item(ns)");
+                System.out.println("\nBem-vindo! O que deseja comprar?");
+            },
+                    "Poção de Cura (10 Ouro)",
+                    "Descansar (Recupera toda vida e mana) (25 Ouro)",
+                    "Sair da Loja");
 
             switch (escolha) {
                 case 1:
@@ -35,7 +34,8 @@ public class Loja {
                     break;
                 case 2:
                     if (jogador.getOuro() >= 25) {
-                        if (jogador.getVida() == jogador.getVidaMaxima() && jogador.getMana() == jogador.getManaMaxima()) {
+                        if (jogador.getVida() == jogador.getVidaMaxima()
+                                && jogador.getMana() == jogador.getManaMaxima()) {
                             System.out.println("Você já está descansado!");
                         } else {
                             jogador.removerOuro(25);

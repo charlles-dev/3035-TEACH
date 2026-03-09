@@ -51,15 +51,30 @@ public class ConsoleUtils {
         double percentual = (double) atual / max;
         int preenchido = (int) (percentual * tamanhoBarra);
 
-        System.out.print(label + ": [");
+        // Formatando o label para ter tamanho fixo (ex: "Vida : [...]")
+        System.out.printf("%-6s: [", label);
         System.out.print(cor);
         for (int i = 0; i < tamanhoBarra; i++) {
             if (i < preenchido) {
-                System.out.print("#");
+                System.out.print("█"); // Usando um bloco sólido para melhor visual
             } else {
-                System.out.print("-");
+                System.out.print("░"); // Reticências para vazio
             }
         }
-        System.out.print(RESET + "] " + atual + "/" + max + "\n");
+        // Formatando os números para que fiquem alinhados
+        System.out.print(RESET + "] " + String.format("%3d/%3d", atual, max) + "\n");
+    }
+
+    public static void imprimirDigitando(String texto, int delayMs) {
+        for (char c : texto.toCharArray()) {
+            System.out.print(c);
+            System.out.flush();
+            pausar(delayMs);
+        }
+        System.out.println();
+    }
+
+    public static void imprimirDigitando(String texto) {
+        imprimirDigitando(texto, 15); // Default de 15ms por caractere
     }
 }

@@ -1,7 +1,7 @@
 package desafio_poo.personagem;
 
-import Desafio.itens.Item;
-import Desafio.itens.PocaoCura;
+import desafio_poo.itens.Item;
+import desafio_poo.itens.PocaoCura;
 import java.util.ArrayList;
 import java.util.List;
 

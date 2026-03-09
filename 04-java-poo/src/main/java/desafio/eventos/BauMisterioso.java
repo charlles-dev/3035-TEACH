@@ -1,7 +1,7 @@
 package desafio_poo.eventos;
 
-import Desafio.personagem.Personagem;
-import Desafio.utilitarios.ConsoleUtils;
+import desafio_poo.personagem.Personagem;
+import desafio_poo.utilitarios.ConsoleUtils;
 
 public class BauMisterioso implements Evento {
     @Override
@@ -9,11 +9,10 @@ public class BauMisterioso implements Evento {
         System.out.println(ConsoleUtils.YELLOW + "\nVocê encontrou um Baú Misterioso!" + ConsoleUtils.RESET);
         System.out.println("O baú está coberto de poeira e teias de aranha.");
         
-        System.out.println("Deseja tentar abrir o baú?");
-        System.out.println("1 - Sim");
-        System.out.println("2 - Não");
-        
-        int escolha = ConsoleUtils.lerInteiro("Sua escolha: ");
+        int escolha = desafio_poo.utilitarios.MenuInterativo.escolherOpcao(
+            "Deseja tentar abrir o baú?", 
+            "Sim", "Não"
+        );
         
         if (escolha == 1) {
             double sorte = Math.random();

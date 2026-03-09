@@ -1,8 +1,8 @@
 package desafio_poo.batalha;
 
-import Desafio.personagem.Inimigo;
-import Desafio.personagem.Personagem;
-import Desafio.utilitarios.ConsoleUtils;
+import desafio_poo.personagem.Inimigo;
+import desafio_poo.personagem.Personagem;
+import desafio_poo.utilitarios.ConsoleUtils;
 
 public class Batalha {
     private Personagem jogador;
@@ -22,8 +22,8 @@ public class Batalha {
         System.out.println("==================================\n");
 
         while (jogador.estaVivo() && inimigo.estaVivo()) {
-            System.out.println("--- Turno " + turno + " ---");
-            exibirStatus();
+            // HUD e status são exibidos dinamicamente dentro do turnoJogador via
+            // MenuInterativo
 
             // Turno do jogador
             turnoJogador();
@@ -51,10 +51,11 @@ public class Batalha {
     }
 
     private void exibirStatus() {
-        System.out.println(ConsoleUtils.CYAN + jogador.getNome() + " (" + jogador.getClasse() + ")" + ConsoleUtils.RESET);
+        System.out
+                .println(ConsoleUtils.CYAN + jogador.getNome() + " (" + jogador.getClasse() + ")" + ConsoleUtils.RESET);
         ConsoleUtils.exibirBarra("Vida", jogador.getVida(), jogador.getVidaMaxima(), ConsoleUtils.GREEN);
         ConsoleUtils.exibirBarra("Mana", jogador.getMana(), jogador.getManaMaxima(), ConsoleUtils.BLUE);
-        
+
         System.out.println("\n" + ConsoleUtils.RED + inimigo.getNome() + ConsoleUtils.RESET);
         ConsoleUtils.exibirBarra("Vida", inimigo.getVida(), inimigo.getVidaMaxima(), ConsoleUtils.RED);
         System.out.println();
@@ -65,13 +66,12 @@ public class Batalha {
         boolean acaoValida = false;
 
         while (!acaoValida) {
-            System.out.println("Escolha sua ação:");
-            System.out.println("1 - Atacar");
-            System.out.println("2 - Defender");
-            System.out.println("3 - Usar Item");
-            System.out.println("4 - Habilidade Especial");
-
-            int escolha = ConsoleUtils.lerInteiro("Sua escolha: ");
+            int escolha = desafio_poo.utilitarios.MenuInterativo.escolherOpcao(() -> {
+                System.out.println("--- Turno " + turno + " ---");
+                exibirStatus();
+                System.out.println("Sua vez! O que vai fazer?");
+            },
+                    "Atacar", "Defender", "Usar Item", "Habilidade Especial");
 
             System.out.println();
             switch (escolha) {

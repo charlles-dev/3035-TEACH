@@ -15,20 +15,24 @@ Manipulação de Arquivos (IO).
 --------------------------------------------------------------------------------
 ⚙️ COMO COMPILAR E JOGAR
 --------------------------------------------------------------------------------
-O jogo foi estruturado com base em pacotes organizados. Para jogar via 
-terminal / prompt de comando, siga os passos abaixo:
+O jogo foi estruturado com base no Maven para gerenciamento de dependências. 
+Para jogar via terminal / prompt de comando, siga os passos abaixo:
 
-1. Abra o terminal e navegue até a pasta raiz do módulo:
-   cd 04-java-avancado
+1. Abra o terminal e navegue até a pasta raiz do projeto:
+   cd 04-java-poo
 
-2. Compile o código-fonte inteiro:
-   javac -d bin -sourcepath src/main/java src/main/java/Desafio/Main.java
-
-3. Execute o jogo:
-   java -cp bin Desafio.Main
+2. Compile e execute o jogo usando o Maven:
+   mvn compile exec:java -Dexec.mainClass="desafio_poo.Main"
 
 💡 Dica: No IntelliJ IDEA ou VS Code, basta abrir o projeto e executar a 
-classe `Main.java`. A IDE gerenciará as dependências automaticamente.
+classe `Main.java`. A IDE gerenciará as dependências automaticamente (JLine3).
+
+--------------------------------------------------------------------------------
+🎮 MENU INTERATIVO (NOVIDADE)
+--------------------------------------------------------------------------------
+O jogo agora conta com integração com a biblioteca JLine3, permitindo uma
+navegação fluida pelos menus utilizando as Setas do Teclado (↑ ↓) e Enter, 
+além de teclas de atalho (W/S) como fallback para terminais mais simples.
 
 --------------------------------------------------------------------------------
 📜 FUNCIONALIDADES E SISTEMAS
