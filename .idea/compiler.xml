@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="05-java-db" />
         <module name="03-java-basico" />
         <module name="04-java-poo" />
       </profile>
@@ -13,6 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="05-java-db" options="--enable-native-access=ALL-UNNAMED" />
       <module name="3035-TEACH" options="--enable-native-access=ALL-UNNAMED" />
     </option>
   </component>

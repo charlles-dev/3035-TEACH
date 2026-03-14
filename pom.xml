@@ -45,6 +45,7 @@
     <modules>
         <module>03-java-basico</module>
         <module>04-java-poo</module>
+        <module>05-java-db</module>
     </modules>
 
     <properties>
