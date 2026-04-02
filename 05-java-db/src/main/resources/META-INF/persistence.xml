@@ -13,14 +13,19 @@
         <class>JPA.Inscricao</class>
 
         <properties>
-            <!-- Database Connection Settings -->
-            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/eventos_db?createDatabaseIfNotExist=true&amp;useSSL=false&amp;serverTimezone=UTC"/>
-            <property name="jakarta.persistence.jdbc.user" value="root"/>
-            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <!-- ========================================== -->
+            <!-- CONFIGURAÇÃO DO BANCO DE DADOS             -->
+            <!-- ========================================== -->
+            <!-- Configuração EXCLUSIVA para PostgreSQL via Docker -->
+
+            <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5433/eventos_db"/>
+            <property name="jakarta.persistence.jdbc.user" value="postgres"/>
+            <!-- Senha definida no docker-compose.yml -->
+            <property name="jakarta.persistence.jdbc.password" value="postgrespassword"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
 
             <!-- Hibernate Settings -->
-            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>

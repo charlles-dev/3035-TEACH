@@ -14,8 +14,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="05-java-db" options="--enable-native-access=ALL-UNNAMED" />
-      <module name="3035-TEACH" options="--enable-native-access=ALL-UNNAMED" />
+      <module name="05-java-db" options="" />
+      <module name="3035-TEACH" options="" />
     </option>
   </component>
 </project>
