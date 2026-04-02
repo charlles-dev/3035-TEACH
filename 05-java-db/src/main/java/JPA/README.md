@@ -1,4 +1,4 @@
-# Sistema de Gerenciamento de Eventos PRO - JPA
+# Sistema de Gerenciamento de Eventos - JPA
 
 Bem-vindo ao **Sistema de Eventos Interativo**. Este projeto foi evoluído e modernizado para exibir uma verdadeira Interface de Linha de Comando (CLI) profissional com cores e uma experiência de usuário (UX) excelente nativa no terminal.
 
