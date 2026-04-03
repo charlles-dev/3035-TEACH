@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   postgres:
@@ -14,5 +13,19 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
+  postgres_escola:
+    image: postgres:15
+    container_name: postgres_escola
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: escola_db
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_escola_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
 volumes:
   postgres_data:
+  postgres_escola_data:

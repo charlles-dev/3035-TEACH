@@ -19,11 +19,11 @@ Desenvolvido utilizando as mais avançadas práticas do mundo corporativo Java: 
 Para garantir a limpeza do seu ambiente e que não haja conflitos de porta com outros bancos na sua máquina, este projeto roda com banco de dados Dockerizado na porta **5433**.
 
 **Passo 1: Subir o PostgreSQL via Docker**
-Abra o terminal na raiz (`05-java-db`) e execute:
+Abra o terminal na raiz (`05-java-db`) e ligue **apenas** o serviço respectivo a esta atividade, poupando assim os gastos de CPU do seu computador com outros projetos:
 ```bash
-docker-compose up -d
+docker compose up -d postgres
 ```
-*Isso fará o download e rodará o postgres exclusivamente para o projeto. Seus dados ficaram salvos de forma segura no volume mapeado na sua máquina!*
+*Isso fará o download e rodará o postgres exclusivamente para o projeto de eventos. Seus dados ficaram salvos de forma segura no volume mapeado na sua máquina!*
 
 **Passo 2: Iniciar a Aplicação**
 Você pode rodar direto da sua IDE utilizando a classe **Main**.
