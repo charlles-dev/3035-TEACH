@@ -165,8 +165,8 @@ gantt
 | Status | Módulo | Foco de Aprendizado | Projeto Prático |
 | :---: | :--- | :--- | :--- |
 | ⏳ | [**M07 - Desafio Final**](./M07-Desafio-Final) | **Arquitetura & Integração Final** | *Microserviço de Task Management Fullstack* |
-| ⏳ | [**M06 - Spring Boot**](./M06-Backend-IV-Spring-Boot) | **Spring Boot & Security** | API RESTful com Autenticação JWT |
-| 🟡 | [**M05 - Banco de Dados**](./M05-Backend-III-Java-BD) | **Persistência (JPA/Hibernate)** | DAO Genérico e Modelagem de Dados |
+| 🟢 | [**M06 - Spring Boot**](./06-springboot) | **Spring Boot & Security** | **Frontend Unificado SPA** com React, Kanban JWT e Docker |
+| 🟡 | [**M05 - Banco de Dados**](./05-java-db) | **Persistência (JPA/Hibernate)** | DAO Genérico e Modelagem de Dados |
 | 🟢 | [**M04 - POO Java**](04-java-poo) | **POO Avançada (Java)** | Sistema com Injeção de Dependência Manual |
 | 🟢 | [**M03 - Lógica Java**](03-java-basico) | **Lógica & Algoritmos** | Estruturas de Dados em Java |
 | 🟢 | [**M02 - React**](./02-frontend-react) | **React & TypeScript** | Dashboard Interativo com Consumo de API |
@@ -198,20 +198,34 @@ Para rodar os projetos localmente, siga os passos abaixo:
 - Java 17+
 - Node.js 18+
 - Maven (Opcional, wrapper incluído)
+- Docker / Docker Compose
 
 ### 1. Backend (Ex: M06/M07)
 ```bash
-cd M06-Backend-IV-Spring-Boot
+cd 06-springboot
 ./mvnw spring-boot:run
-# O servidor iniciará em http://localhost:8080
+# O servidor iniciou em http://localhost:8080
 ```
 
 ### 2. Frontend (Ex: M02)
 ```bash
-cd M02-Frontend-II-React
+cd 02-frontend-react
 npm install
 npm run dev
-# A aplicação estará disponível em http://localhost:5173 (ou 3000)
+# A aplicao estar disponvel em http://localhost:5173 (ou 3000)
+```
+
+### 3. Módulo 6 - Tudo (Docker Compose)
+```bash
+cd 06-springboot
+docker-compose up -d
+
+# Servicios:
+# - Frontend:   http://localhost:3000
+# - Exerccio 1: http://localhost:8081
+# - Exerccio 2: http://localhost:8082
+# - Desafio:    http://localhost:8083
+# - PostgreSQL: localhost:5432
 ```
 
 ---

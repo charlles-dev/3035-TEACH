@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  postgres-todo:
+    image: postgres:16-alpine
+    container_name: teach3035-todo
+    environment:
+      POSTGRES_USER: teach3035
+      POSTGRES_PASSWORD: teach3035
+      POSTGRES_DB: todo
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_todo_data:/var/lib/postgresql/data
+
+  app-todo:
+    build: 
+      context: .
+      dockerfile: Dockerfile.todo
+    container_name: teach3035-todo-app
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-todo:5432/todo
+      SPRING_DATASOURCE_USERNAME: teach3035
+      SPRING_DATASOURCE_PASSWORD: teach3035
+      JWT_SECRET: minhachavejwtsecretaminha12345678901234567890123456789012
+      JWT_EXPIRATION: 900000
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres-todo
+
+volumes:
+  postgres_todo_data:

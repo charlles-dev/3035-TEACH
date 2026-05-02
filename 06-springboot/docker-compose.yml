@@ -1,0 +1,81 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: teach3035-postgres
+    environment:
+      POSTGRES_USER: teach3035
+      POSTGRES_PASSWORD: teach3035
+      POSTGRES_DB: teach3035
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - teach-net
+
+  exercicio1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: teach3035-ex1
+    environment:
+      SPRING_PROFILES_ACTIVE: ex1
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres
+    networks:
+      - teach-net
+
+  exercicio2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: teach3035-ex2
+    environment:
+      SPRING_PROFILES_ACTIVE: ex2
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/teach3035
+      SPRING_DATASOURCE_USERNAME: teach3035
+      SPRING_DATASOURCE_PASSWORD: teach3035
+    ports:
+      - "8082:8080"
+    depends_on:
+      - postgres
+    networks:
+      - teach-net
+
+  desafio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: teach3035-desafio
+    environment:
+      SPRING_PROFILES_ACTIVE: desafio
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/teach3035
+      SPRING_DATASOURCE_USERNAME: teach3035
+      SPRING_DATASOURCE_PASSWORD: teach3035
+      JWT_SECRET: minhachavejwtsecretaminha12345678901234567890123456789012
+      JWT_EXPIRATION: 900000
+    ports:
+      - "8083:8080"
+    depends_on:
+      - postgres
+    networks:
+      - teach-net
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: teach3035-frontend
+    ports:
+      - "3000:80"
+    networks:
+      - teach-net
+
+volumes:
+  postgres_data:
+
+networks:
+  teach-net:
+    driver: bridge

@@ -1,0 +1,82 @@
+---
+spring:
+  config:
+    activate:
+      on-profile: ex1
+  datasource:
+    url: jdbc:h2:mem:ex1db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: ${SERVER_PORT:8080}
+  address: 0.0.0.0
+
+logging:
+  level:
+    root: INFO
+---
+spring:
+  config:
+    activate:
+      on-profile: ex2
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/teach3035}
+    username: ${SPRING_DATASOURCE_USERNAME:teach3035}
+    password: ${SPRING_DATASOURCE_PASSWORD:teach3035}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+server:
+  port: ${SERVER_PORT:8080}
+  address: 0.0.0.0
+
+logging:
+  level:
+    root: INFO
+---
+spring:
+  config:
+    activate:
+      on-profile: desafio
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.security.SecurityAutoConfiguration
+      - org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/teach3035}
+    username: ${SPRING_DATASOURCE_USERNAME:teach3035}
+    password: ${SPRING_DATASOURCE_PASSWORD:teach3035}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+
+server:
+  port: ${SERVER_PORT:8080}
+  address: 0.0.0.0
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
+
+jwt:
+  secret: ${JWT_SECRET:minhachavejwtsecretaminha12345678901234567890123456789012}
+  expiration: ${JWT_EXPIRATION:900000}
