@@ -1,0 +1,61 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: teachgram-postgres
+    environment:
+      POSTGRES_DB: teachgram
+      POSTGRES_USER: teachgram
+      POSTGRES_PASSWORD: teachgram
+    ports:
+      - "${POSTGRES_PORT:-55432}:5432"
+    volumes:
+      - teachgram-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U teachgram -d teachgram"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: teachgram-redis
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: teachgram-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: teachgram
+      RABBITMQ_DEFAULT_PASS: teachgram
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    container_name: teachgram-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+
+  grafana:
+    image: grafana/grafana:11.3.1
+    container_name: teachgram-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - teachgram-grafana-data:/var/lib/grafana
+
+volumes:
+  teachgram-postgres-data:
+  teachgram-grafana-data:

@@ -41,6 +41,7 @@
         <module>03-java-basico</module>
         <module>04-java-poo</module>
         <module>05-java-db</module>
+        <module>06-springboot</module>
     </modules>
 
     <properties>

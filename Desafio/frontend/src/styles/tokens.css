@@ -1,0 +1,23 @@
+:root {
+  --color-brand-coral: #f37671;
+  --color-text-strong: #303030;
+  --color-text-default: #666666;
+  --color-text-muted: #8e8e8e;
+  --color-text-soft: #a09f9f;
+  --color-border-default: #e2e2e2;
+  --color-surface: #ffffff;
+  --color-media-placeholder: #dddddd;
+
+  --font-primary: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-secondary: Poppins, var(--font-primary);
+
+  --radius-input: 8px;
+  --radius-button: 10px;
+  --radius-sidebar-item: 15px;
+  --radius-post-card: 18px;
+
+  --shadow-button: 0 4px 21px -4px rgb(0 0 0 / 40%);
+  --shadow-social-button: 0 4px 21px -4px rgb(0 0 0 / 20%);
+  --shadow-post-card: 0 0 4px 0 rgb(0 0 0 / 25%);
+}
+

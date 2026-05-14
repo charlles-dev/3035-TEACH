@@ -6,15 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="06-springboot" />
         <module name="05-java-db" />
-        <module name="03-java-basico" />
         <module name="04-java-poo" />
+        <module name="03-java-basico" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="05-java-db" options="" />
+      <module name="06-springboot" options="-parameters" />
       <module name="3035-TEACH" options="" />
     </option>
   </component>
