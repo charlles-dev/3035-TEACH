@@ -12,10 +12,10 @@
     </parent>
 
     <groupId>dev.charlles.teachgram</groupId>
-    <artifactId>teachgram-pro-api</artifactId>
+    <artifactId>teachgram-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>teachgram-pro-api</name>
-    <description>TeachGram Pro API - desafio final 3035 TEACH</description>
+    <name>teachgram-api</name>
+    <description>Teachgram API - desafio final 3035 TEACH</description>
 
     <properties>
         <java.version>21</java.version>

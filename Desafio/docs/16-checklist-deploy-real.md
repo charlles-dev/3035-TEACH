@@ -50,28 +50,29 @@ Este checklist transforma o TeachGram Pro local em uma demo publica pronta para 
 
 ## 6. Render Backend
 
-- [ ] Criar Web Service no Render apontando para o repositorio.
-- [ ] Root directory: `Desafio/backend` se o repositorio raiz for `3035-TEACH`.
-- [ ] Build command: `./mvnw clean package -DskipTests`.
-- [ ] Start command: `java -jar target/teachgram-pro-api-0.0.1-SNAPSHOT.jar`.
-- [ ] Health check path: `/actuator/health`.
-- [ ] Definir `SPRING_PROFILES_ACTIVE=demo`.
-- [ ] Definir `JWT_SECRET` forte, com pelo menos 32 caracteres aleatorios.
-- [ ] Definir `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD`.
+- [ ] Criar Web Service no Render via Blueprint (usar `infra/render.yaml`).
+- [x] Root directory: `Desafio/backend` (configurado no `render.yaml`).
+- [x] Build via Docker: `Dockerfile` na raiz do backend.
+- [x] Start command: `java -Dserver.port=${PORT:-8080} -jar app.jar` (via Dockerfile).
+- [x] Health check path: `/actuator/health` (configurado no `render.yaml`).
+- [x] Definir `SPRING_PROFILES_ACTIVE=demo` (configurado no `render.yaml`).
+- [ ] Definir `JWT_SECRET` forte no painel do Render (minimo 32 caracteres).
+- [ ] Definir `DATABASE_URL`, `DATABASE_USERNAME`, `DATABASE_PASSWORD` no painel do Render.
+- [ ] Definir `REDIS_URL` no painel do Render.
+- [ ] Definir `GROQ_API_KEY` no painel do Render.
 - [ ] Definir `CORS_ALLOWED_ORIGINS` com a URL final da Vercel.
-- [ ] Definir `SECURE_COOKIES=true`.
 - [ ] Fazer deploy e confirmar logs sem erro de Flyway/JPA.
 - [ ] Abrir `/actuator/health` publico e confirmar `UP`.
 
 ## 7. Vercel Frontend
 
 - [ ] Criar projeto na Vercel apontando para o repositorio.
-- [ ] Root directory: `Desafio/frontend` se o repositorio raiz for `3035-TEACH`.
-- [ ] Framework: Vite.
-- [ ] Build command: `npm run build`.
-- [ ] Output directory: `dist`.
-- [ ] Definir `VITE_API_BASE_URL=https://<render-service>/api/v1`.
-- [ ] Definir `VITE_DEMO_EMAIL=demo@teachgram.pro`.
+- [x] Root directory: `Desafio/frontend` (configurado no `vercel.json`).
+- [x] Framework: Vite (configurado no `vercel.json`).
+- [x] Build command: `npm run build` (configurado no `vercel.json`).
+- [x] Output directory: `dist` (configurado no `vercel.json`).
+- [ ] Definir `VITE_API_BASE_URL=https://<url-do-render>/api/v1` no painel da Vercel.
+- [x] Definir `VITE_DEMO_EMAIL=demo@teachgram.pro`.
 - [ ] Fazer deploy e abrir a URL publica.
 
 ## 8. Smoke Test Publico

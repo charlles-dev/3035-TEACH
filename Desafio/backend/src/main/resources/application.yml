@@ -1,6 +1,6 @@
 spring:
   application:
-    name: teachgram-pro-api
+    name: teachgram-api
   profiles:
     default: local
   jpa:

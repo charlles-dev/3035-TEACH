@@ -332,7 +332,7 @@ function AuthShell({ children }: PropsWithChildren) {
       <section className="auth-art" aria-hidden>
         <div className="auth-art-card">
           <span />
-          <strong>TeachGram Pro</strong>
+          <strong>Teachgram</strong>
         </div>
       </section>
     </main>

@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: teachgram-pro-api
+    name: teachgram-api
     runtime: docker
     plan: free
     rootDir: backend
@@ -45,8 +45,10 @@ services:
       - key: GROQ_MODEL_VERSION
         sync: false
       - key: SUPABASE_STORAGE_ENABLED
-        value: false
+        value: true
       - key: SUPABASE_URL
         sync: false
       - key: SUPABASE_SERVICE_ROLE_KEY
         sync: false
+      - key: SUPABASE_PUBLIC_BUCKET
+        value: teachgram-media
