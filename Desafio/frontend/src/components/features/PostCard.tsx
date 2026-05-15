@@ -9,6 +9,7 @@ import { relativeTime } from "../../lib/format";
 import { ModerationNotice } from "../ui/Feedback";
 import { ProfileAvatar } from "./ProfileAvatar";
 import { apiRequest } from "../../lib/api";
+import { SmartImage } from "../ui/SmartImage";
 
 export function PostCard({ post, expanded = false }: { post: PostResponse; expanded?: boolean }) {
   const { token } = useAuth();
@@ -71,7 +72,11 @@ export function PostCard({ post, expanded = false }: { post: PostResponse; expan
       </Link>
 
       {post.media[0] && (
-        <img className="post-media" src={post.media[0].url} alt={post.media[0].altText ?? post.title} />
+        <SmartImage 
+          className="post-media w-full h-auto max-h-[500px] object-cover" 
+          src={post.media[0].url} 
+          alt={post.media[0].altText ?? post.title} 
+        />
       )}
       
       {post.moderationStatus !== "APPROVED" && <ModerationNotice status={post.moderationStatus} />}

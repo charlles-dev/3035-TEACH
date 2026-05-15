@@ -8,6 +8,8 @@ export type AuthUser = {
   email: string;
   displayName?: string;
   avatarUrl?: string;
+  bio?: string;
+  phone?: string;
   role?: string;
 };
 export type AuthResponse = {

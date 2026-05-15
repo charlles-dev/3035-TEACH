@@ -1,4 +1,4 @@
-import { ArrowLeft, LogOut } from "lucide-react";
+import { ArrowLeft, LogOut, Sparkles } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { figmaAssets } from "../../assets/figma/figmaAssets";
 import { AuthUser } from "../../lib/api";
@@ -9,6 +9,7 @@ export function SidebarNav({ onLogout, user, withTopbar = false }: { onLogout: (
   const navigate = useNavigate();
   const items = [
     ["/", figmaAssets.homeIcon, "Feed"],
+    ["/ai/studio", "sparkles", "IA Studio"],
     ["/friends", figmaAssets.friendsIcon, "Amigos"],
     [`/u/${user.username}`, "avatar", "Perfil"],
     ["/settings/account", figmaAssets.settingsIcon, "Configurações"],
@@ -31,6 +32,8 @@ export function SidebarNav({ onLogout, user, withTopbar = false }: { onLogout: (
           <NavLink key={href} to={href} className={({ isActive }) => `sidebar-item ${icon === "avatar" ? "sidebar-item-profile" : ""} ${isActive ? "active" : ""}`}>
             {icon === "avatar" ? (
               <div className="sidebar-avatar-wrapper"><ProfileAvatar profile={user} /></div>
+            ) : icon === "sparkles" ? (
+              <div className="sidebar-icon-img flex items-center justify-center"><Sparkles size={24} /></div>
             ) : (
               <img className="sidebar-icon-img" src={icon} alt="" aria-hidden />
             )}

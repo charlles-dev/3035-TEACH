@@ -26,10 +26,10 @@ export function NewPostPage({ editing = false }: { editing?: boolean }) {
   const form = useForm<PostPayload>({
     resolver: zodResolver(postSchema),
     defaultValues: {
-      title: "Publicação",
-      description: editing ? "Hoje foi dia de passeio" : "",
+      title: "Nova Publicação",
+      description: "",
       visibility: "PUBLIC",
-      mediaUrl: figmaAssets.feedPhotoSecondary,
+      mediaUrl: "",
     },
   });
   const mediaUrlValue = form.watch("mediaUrl");
@@ -53,42 +53,51 @@ export function NewPostPage({ editing = false }: { editing?: boolean }) {
   const submit = form.handleSubmit((values) => createPost.mutate(values));
 
   return (
-    <>
-      <section className="page-frame feed-frame new-post-feed-backdrop" aria-hidden>
-        <article className="post-card">
-          <header className="post-header">
-            <div className="post-author-info">
-              <img className="avatar" src={figmaAssets.feedAvatarPrimary} alt="" />
-              <div className="post-author-name"><strong>@JennieRubyJane</strong><span>há 5 min</span></div>
-            </div>
-          </header>
-          <p className="post-description">Hoje foi dia de tomar uma vitamina refrescante</p>
-          <img className="post-media" src={figmaAssets.feedPhotoPrimary} alt="" />
-        </article>
-      </section>
-      <div className="modal-overlay figma-new-post-overlay">
-        <form className="figma-post-modal" onSubmit={submit}>
-          <header>
-            <button type="button" className="figma-modal-close" onClick={() => step === 2 && !editing ? setStep(1) : navigate(-1)}>
-              {step === 2 && !editing ? "←" : "×"}
+    <div className="modal-overlay figma-new-post-overlay">
+      <form className="figma-post-modal" onSubmit={submit}>
+        <header>
+          <button type="button" className="figma-modal-close" onClick={() => step === 2 && !editing ? setStep(1) : navigate(-1)}>
+            {step === 2 && !editing ? "←" : "×"}
+          </button>
+          <h1>{editing ? "Editar publicação" : "Criar nova publicação"}</h1>
+          {step === 1 && !editing ? (
+            <button type="button" className="figma-modal-action" onClick={() => setStep(2)} disabled={!mediaUrlValue}>Avançar</button>
+          ) : (
+            <button type="submit" className="figma-modal-action" disabled={createPost.isPending}>
+              {createPost.isPending ? "..." : (editing ? "Salvar" : "Compartilhar")}
             </button>
-            <h1>{editing ? "Editar publicação" : "Criar nova publicação"}</h1>
-            {step === 1 && !editing ? (
-              <button type="button" className="figma-modal-action" onClick={() => setStep(2)}>Avançar</button>
-            ) : (
-              <button type="submit" className="figma-modal-action">{editing ? "Salvar" : "Compartilhar"}</button>
-            )}
-          </header>
-          <input type="hidden" {...form.register("mediaUrl")} />
-          <input type="hidden" {...form.register("title")} />
-          <input type="hidden" {...form.register("visibility")} />
-          <img className="figma-post-modal-image" src={mediaUrlValue || figmaAssets.feedPhotoSecondary} alt="" />
-          {(step === 2 || editing) && (
-            <textarea className="figma-post-caption" placeholder="Escreva uma legenda..." {...form.register("description")} />
           )}
-          {createPost.error && <InlineError message={messageFromError(createPost.error)} />}
-        </form>
-      </div>
-    </>
+        </header>
+
+        {step === 1 && !editing ? (
+          <div className="p-6 flex flex-col gap-4">
+            <p className="text-sm text-gray-500 text-center">Cole o link de uma imagem para começar</p>
+            <input 
+              className="figma-line-input coral-line-input !static !w-full" 
+              placeholder="https://exemplo.com/imagem.jpg" 
+              {...form.register("mediaUrl")} 
+            />
+            {mediaUrlValue && (
+              <img className="figma-post-modal-image !static !max-h-60 object-contain rounded-lg" src={mediaUrlValue} alt="Preview" />
+            )}
+          </div>
+        ) : (
+          <div className="flex flex-col">
+            <img className="figma-post-modal-image !static !max-h-60 object-cover" src={mediaUrlValue || figmaAssets.feedPhotoSecondary} alt="" />
+            <textarea className="figma-post-caption" placeholder="Escreva uma legenda..." {...form.register("description")} autoFocus />
+            <div className="px-6 pb-6">
+               <label className="text-xs text-gray-400 block mb-1">Visibilidade</label>
+               <select {...form.register("visibility")} className="w-full bg-gray-50 border-none rounded p-2 text-sm">
+                  <option value="PUBLIC">Público</option>
+                  <option value="FOLLOWERS">Amigos</option>
+                  <option value="PRIVATE">Privado</option>
+               </select>
+            </div>
+          </div>
+        )}
+        {createPost.error && <div className="px-6 pb-4"><InlineError message={messageFromError(createPost.error)} /></div>}
+      </form>
+    </div>
   );
 }
+

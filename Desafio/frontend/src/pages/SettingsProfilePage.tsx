@@ -23,11 +23,11 @@ export function SettingsProfilePage({ photoFocus = false }: { photoFocus?: boole
   const queryClient = useQueryClient();
   const form = useForm<ProfileForm>({
     defaultValues: {
-      displayName: user?.displayName ?? "Maria da Silva",
-      username: user?.username ?? "Maria",
+      displayName: user?.displayName ?? "",
+      username: user?.username ?? "",
       email: user?.email ?? "",
       phone: "",
-      bio: "O melhor de mim ainda está por vir. 🌹",
+      bio: user?.bio ?? "",
       avatarUrl: user?.avatarUrl ?? "",
     },
   });
