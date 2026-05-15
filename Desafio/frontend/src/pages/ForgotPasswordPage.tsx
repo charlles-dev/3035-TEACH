@@ -1,5 +1,5 @@
-import { Link } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { AuthShell } from "../components/layout/AuthShell";
 import { AuthInput } from "../components/ui/AuthInput";
 import { PrimaryButton } from "../components/ui/Button";

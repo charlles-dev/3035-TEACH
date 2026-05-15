@@ -1,37 +1,53 @@
-import { Home, Users, Settings, PlusSquare, LogOut } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { ArrowLeft, LogOut } from "lucide-react";
+import { NavLink, useNavigate } from "react-router-dom";
+import { figmaAssets } from "../../assets/figma/figmaAssets";
 import { AuthUser } from "../../lib/api";
 import { ProfileAvatar } from "../features/ProfileAvatar";
 import { TeachgramLogo } from "./TeachgramLogo";
 
-export function SidebarNav({ onLogout, user }: { onLogout: () => void; user: AuthUser }) {
+export function SidebarNav({ onLogout, user, withTopbar = false }: { onLogout: () => void; user: AuthUser; withTopbar?: boolean }) {
+  const navigate = useNavigate();
   const items = [
-    ["/", Home, "Feed"],
-    ["/friends", Users, "Amigos"],
+    ["/", figmaAssets.homeIcon, "Feed"],
+    ["/friends", figmaAssets.friendsIcon, "Amigos"],
     [`/u/${user.username}`, "avatar", "Perfil"],
-    ["/settings/account", Settings, "Configurações"],
+    ["/settings/account", figmaAssets.settingsIcon, "Configurações"],
   ] as const;
+
   return (
     <aside className="sidebar">
-      <TeachgramLogo />
+      {withTopbar ? (
+        <div className="sidebar-topbar">
+          <button type="button" className="figma-back-button" onClick={() => navigate(-1)} aria-label="Voltar">
+            <ArrowLeft size={26} strokeWidth={3} />
+          </button>
+          <TeachgramLogo />
+        </div>
+      ) : (
+        <TeachgramLogo />
+      )}
       <nav className="sidebar-nav">
-        {items.map(([href, Icon, label]) => (
-          <NavLink key={href} to={href} className={({ isActive }) => `sidebar-item ${isActive ? "active" : ""}`}>
-            {Icon === "avatar" ? (
+        {items.map(([href, icon, label]) => (
+          <NavLink key={href} to={href} className={({ isActive }) => `sidebar-item ${icon === "avatar" ? "sidebar-item-profile" : ""} ${isActive ? "active" : ""}`}>
+            {icon === "avatar" ? (
               <div className="sidebar-avatar-wrapper"><ProfileAvatar profile={user} /></div>
             ) : (
-              <Icon size={22} aria-hidden />
+              <img className="sidebar-icon-img" src={icon} alt="" aria-hidden />
             )}
             <span>{label}</span>
           </NavLink>
         ))}
-        <NavLink to="/new-post" className={({ isActive }) => `sidebar-item ${isActive ? "active" : ""}`}>
-          <PlusSquare size={22} aria-hidden />
+        <NavLink to="/new-post" className={({ isActive }) => `sidebar-item sidebar-item-create ${isActive ? "active" : ""}`}>
+          <span className="create-icon" aria-hidden>
+            <img className="create-icon-square" src={figmaAssets.createIconSquare} alt="" />
+            <img className="create-icon-line create-icon-line-horizontal" src={figmaAssets.createIconStroke} alt="" />
+            <img className="create-icon-line create-icon-line-vertical" src={figmaAssets.createIconStroke} alt="" />
+          </span>
           <span>Criar</span>
         </NavLink>
       </nav>
       <button className="sidebar-item logout" onClick={onLogout} type="button">
-        <LogOut size={22} aria-hidden />
+        <LogOut size={26} strokeWidth={1.6} aria-hidden />
         <span>Sair</span>
       </button>
     </aside>

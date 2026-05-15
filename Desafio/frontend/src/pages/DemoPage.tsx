@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "lucide-react";
+import { Link } from "react-router-dom";
 import { PageFrame } from "../components/layout/PageFrame";
 import { DEMO_EMAIL } from "../contexts/AuthContext";
 import { API_BASE_URL } from "../lib/api";

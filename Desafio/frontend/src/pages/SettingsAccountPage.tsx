@@ -1,22 +1,40 @@
-import { Link } from "lucide-react";
-import { ProfileAvatar } from "../components/features/ProfileAvatar";
-import { PageFrame } from "../components/layout/PageFrame";
+import { ArrowLeft } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
 export function SettingsAccountPage() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const displayName = user?.displayName ?? "Maria da Silva";
+  const email = user?.email ?? "maria@email.com";
+
   return (
-    <PageFrame title="Configuracoes">
-      <section className="content-card settings-card">
-        <ProfileAvatar profile={{ id: user?.id ?? "", username: user?.username ?? "", displayName: user?.displayName ?? "Usuario", avatarUrl: user?.avatarUrl }} large />
-        <div>
-          <h2>{user?.displayName ?? user?.username}</h2>
-          <p>{user?.email}</p>
-        </div>
-        <Link className="secondary-button" to="/settings/profile">Editar perfil</Link>
-        <Link className="secondary-button danger-text" to="/settings/delete">Excluir conta</Link>
-        <button className="secondary-button" type="button" onClick={logout}>Sair</button>
+    <main className="figma-settings-screen">
+      <button type="button" className="figma-back-button settings-back" onClick={() => navigate(-1)} aria-label="Voltar">
+        <ArrowLeft size={28} strokeWidth={3} />
+      </button>
+      <section className="settings-account-form">
+        <h1>Configurações da conta</h1>
+        <dl className="settings-readonly-list">
+          <div>
+            <dt>Nome</dt>
+            <dd>{displayName}</dd>
+          </div>
+          <div>
+            <dt>Email</dt>
+            <dd>{email}</dd>
+          </div>
+          <div>
+            <dt>Celular</dt>
+            <dd>55 51 99948 5500</dd>
+          </div>
+          <div>
+            <dt>Senha</dt>
+            <dd>****************</dd>
+          </div>
+        </dl>
+        <button type="button" className="figma-small-primary">Salvar</button>
       </section>
-    </PageFrame>
+    </main>
   );
 }

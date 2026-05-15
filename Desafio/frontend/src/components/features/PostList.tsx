@@ -1,4 +1,5 @@
-import { Link, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 import { CursorPage, PostResponse } from "../../lib/api";
 import { SkeletonCard, EmptyState } from "../ui/Feedback";
 import { PostCard } from "./PostCard";

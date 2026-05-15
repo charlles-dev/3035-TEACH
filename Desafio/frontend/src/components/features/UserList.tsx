@@ -1,4 +1,4 @@
-import { Link } from "lucide-react";
+import { Link } from "react-router-dom";
 import { ProfileSummary } from "../../lib/api";
 import { SkeletonCard, EmptyState } from "../ui/Feedback";
 import { ProfileAvatar } from "./ProfileAvatar";
@@ -21,7 +21,7 @@ export function UserListItem({ user }: { user: ProfileSummary }) {
         <strong>@{user.username}</strong>
         <span>{user.displayName}</span>
       </div>
-      <Link to={`/u/${user.username}`} className="secondary-button coral-text view-profile-btn" style={{ minHeight: '32px', fontSize: '13px', padding: '0 12px' }}>
+      <Link to={`/u/${user.username}`} className="secondary-button coral-text view-profile-btn">
         Ver perfil
       </Link>
     </div>

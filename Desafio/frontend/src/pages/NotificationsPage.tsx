@@ -1,4 +1,5 @@
-import { Link, Bell } from "lucide-react";
+import { Bell } from "lucide-react";
+import { Link } from "react-router-dom";
 import { ProfileAvatar } from "../components/features/ProfileAvatar";
 import { PageFrame } from "../components/layout/PageFrame";
 import { SkeletonCard, EmptyState } from "../components/ui/Feedback";

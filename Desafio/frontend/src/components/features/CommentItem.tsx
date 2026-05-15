@@ -4,7 +4,6 @@ import { useAuth } from "../../contexts/AuthContext";
 import { CommentResponse } from "../../pages/PostDetailPage";
 import { ProfileAvatar } from "./ProfileAvatar";
 import { apiRequest } from '../../lib/api';
-import { queryClient } from '../../lib/queryClient';
 
 export function CommentComposer({ postId }: { postId: string }) {
   const { token } = useAuth();

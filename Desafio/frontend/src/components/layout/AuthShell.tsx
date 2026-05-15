@@ -1,4 +1,5 @@
 import { PropsWithChildren } from "react";
+import { figmaAssets } from "../../assets/figma/figmaAssets";
 import { TeachgramLogo } from "./TeachgramLogo";
 
 export function AuthShell({ children }: PropsWithChildren) {
@@ -9,8 +10,9 @@ export function AuthShell({ children }: PropsWithChildren) {
         {children}
       </section>
       <section className="auth-art" aria-hidden>
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80" alt="Amigos tirando foto" className="auth-art-image" />
-        <div className="auth-art-decor" />
+        <img src={figmaAssets.authHero} alt="" className="auth-art-image" />
+        <img src={figmaAssets.authOrnament} alt="" className="auth-art-decor auth-art-decor-one" />
+        <img src={figmaAssets.authOrnament} alt="" className="auth-art-decor auth-art-decor-two" />
       </section>
     </main>
   );

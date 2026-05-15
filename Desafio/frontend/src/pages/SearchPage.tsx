@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Settings } from "lucide-react";
+import { figmaAssets } from "../assets/figma/figmaAssets";
 import { PostCard } from "../components/features/PostCard";
 import { UserList } from "../components/features/UserList";
 import { PageFrame } from "../components/layout/PageFrame";
@@ -13,6 +15,36 @@ export function SearchPage({ relationshipMode = false }: { relationshipMode?: bo
     `/search?q=${encodeURIComponent(term)}&type=${type}`,
     term.trim().length >= 2,
   );
+
+  if (relationshipMode) {
+    return (
+      <section className="official-profile-page">
+        <header className="official-profile-header">
+          <img className="official-profile-avatar" src={figmaAssets.profileAvatarCarlos} alt="" />
+          <div className="official-profile-copy">
+            <div className="official-profile-title-row">
+              <h1>Carlos Tozeli</h1>
+              <Settings size={26} strokeWidth={1.7} />
+            </div>
+            <p>Empresário</p>
+            <p>Durma com ideias, acorde com atitudes.</p>
+            <button type="button" className="official-add-button">Adicionar</button>
+          </div>
+        </header>
+        <div className="official-profile-stats">
+          <div><strong>50</strong><span>Posts</span></div>
+          <span className="official-stats-divider" />
+          <div><strong>100</strong><span>Amigos</span></div>
+        </div>
+        <div className="official-profile-grid">
+          {figmaAssets.profileGrid.slice(0, 6).map((src, index) => (
+            <img key={`${src}-${index}`} src={src} alt="" />
+          ))}
+        </div>
+      </section>
+    );
+  }
+
   return (
     <PageFrame title={relationshipMode ? "Adicionar" : "Buscar"}>
       <section className="content-card search-panel">

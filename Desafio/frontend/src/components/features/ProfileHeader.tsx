@@ -3,7 +3,6 @@ import { useAuth } from "../../contexts/AuthContext";
 import { ProfileSummary } from "../../lib/api";
 import { ProfileAvatar } from "./ProfileAvatar";
 import { apiRequest } from '../../lib/api';
-import { queryClient } from '../../lib/queryClient';
 
 export type PublicProfile = ProfileSummary & {
   stats: { posts: number; followers: number; following: number };
