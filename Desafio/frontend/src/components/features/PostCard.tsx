@@ -12,7 +12,9 @@ import { apiRequest } from "../../lib/api";
 import { SmartImage } from "../ui/SmartImage";
 
 export function PostCard({ post, expanded = false }: { post: PostResponse; expanded?: boolean }) {
-  const { token } = useAuth();
+  const { token, user } = useAuth();
+  const isAdmin = user?.role === "ADMIN";
+  const canManage = post.viewerState.owner || isAdmin;
   const queryClient = useQueryClient();
   const [menuOpen, setMenuOpen] = useState(false);
   const [confirmDeleteOpen, setConfirmDeleteOpen] = useState(false);
@@ -43,24 +45,21 @@ export function PostCard({ post, expanded = false }: { post: PostResponse; expan
           </Link>
         </div>
         <div className="post-actions-menu">
-          {post.viewerState.owner ? (
+          {canManage && (
             <button className="post-menu-button" type="button" aria-label="Mais opções" onClick={() => setMenuOpen((open) => !open)}>
               <img className="post-more-icon" src={figmaAssets.feedMoreIcon} alt="" aria-hidden />
             </button>
-          ) : (
-            <button className="post-menu-button" type="button" aria-label="Mais opções">
-              <img className="post-more-icon" src={figmaAssets.feedMoreIcon} alt="" aria-hidden />
-            </button>
           )}
-          {post.viewerState.owner && menuOpen && (
+          {canManage && menuOpen && (
             <div className="post-owner-menu" role="menu">
-              <Link to={`/posts/${post.id}/edit`} role="menuitem">Editar</Link>
+              {post.viewerState.owner && <Link to={`/posts/${post.id}/edit`} role="menuitem">Editar</Link>}
               <button
                 type="button"
                 role="menuitem"
+                className="delete-action-text"
                 onClick={() => setConfirmDeleteOpen(true)}
               >
-                Excluir
+                Excluir {isAdmin && !post.viewerState.owner ? "(Admin)" : ""}
               </button>
             </div>
           )}

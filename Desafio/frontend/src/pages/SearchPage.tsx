@@ -18,30 +18,15 @@ export function SearchPage({ relationshipMode = false }: { relationshipMode?: bo
 
   if (relationshipMode) {
     return (
-      <section className="official-profile-page">
-        <header className="official-profile-header">
-          <img className="official-profile-avatar" src={figmaAssets.profileAvatarCarlos} alt="" />
-          <div className="official-profile-copy">
-            <div className="official-profile-title-row">
-              <h1>Carlos Tozeli</h1>
-              <Settings size={26} strokeWidth={1.7} />
-            </div>
-            <p>Empresário</p>
-            <p>Durma com ideias, acorde com atitudes.</p>
-            <button type="button" className="official-add-button">Adicionar</button>
-          </div>
-        </header>
-        <div className="official-profile-stats">
-          <div><strong>50</strong><span>Posts</span></div>
-          <span className="official-stats-divider" />
-          <div><strong>100</strong><span>Amigos</span></div>
-        </div>
-        <div className="official-profile-grid">
-          {figmaAssets.profileGrid.slice(0, 6).map((src, index) => (
-            <img key={`${src}-${index}`} src={src} alt="" />
-          ))}
-        </div>
-      </section>
+      <PageFrame title="Adicionar Conexões">
+        <section className="content-card search-panel">
+          <p className="mb-4 text-gray-500">Busque por pessoas para expandir sua rede.</p>
+          <input value={term} onChange={(event) => setTerm(event.target.value)} placeholder="Digite o nome ou @username" />
+        </section>
+        {term.trim().length < 2 && <EmptyState title="Digite ao menos dois caracteres para buscar amigos." />}
+        {search.data && <UserList title="Pessoas encontradas" users={search.data.users} />}
+        {search.isError && <EmptyState title="Erro ao buscar conexões." />}
+      </PageFrame>
     );
   }
 

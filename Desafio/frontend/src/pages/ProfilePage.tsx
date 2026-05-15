@@ -1,19 +1,30 @@
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { Settings, LogOut } from "lucide-react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { figmaAssets } from "../assets/figma/figmaAssets";
-import { useApi, CursorPage, PostResponse } from "../lib/api";
+import { useApi, CursorPage, PostResponse, apiRequest } from "../lib/api";
 import { useAuth } from "../contexts/AuthContext";
 import { SmartImage } from "../components/ui/SmartImage";
 
 export function ProfilePage() {
   const { username } = useParams();
-  const { user, logout } = useAuth();
+  const { user, token, logout } = useAuth();
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const profile = useApi<any>(["profile", username], `/users/${username}`, Boolean(username));
   const posts = useApi<CursorPage<PostResponse>>(["profile-posts", username], `/users/${username}/posts`, Boolean(username));
   
   const data = profile.data;
   const isOwnProfile = user?.username === username;
+
+  const followMutation = useMutation({
+    mutationFn: () => apiRequest(`/users/${data?.id}/follow`, token, { 
+      method: data?.viewerState?.following ? "DELETE" : "POST" 
+    }),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["profile", username] });
+    }
+  });
 
   if (profile.isLoading) {
     return <div className="flex items-center justify-center h-screen text-coral-500">Carregando perfil...</div>;
@@ -57,19 +68,33 @@ export function ProfilePage() {
           <p className="mt-1">{data.bio || "Sem biografia ainda."}</p>
           
           {!isOwnProfile && (
-            <button type="button" className="official-friend-select">
-              {data.viewerState?.following ? "Amigos" : "Adicionar"}
+            <button 
+              type="button" 
+              className={`official-friend-select ${data.viewerState?.following ? "!bg-gray-100 !text-gray-800" : ""}`}
+              onClick={() => followMutation.mutate()}
+              disabled={followMutation.isPending}
+            >
+              {followMutation.isPending ? "Processando..." : (data.viewerState?.following ? "Seguindo" : "Seguir")}
             </button>
           )}
           
           {isOwnProfile && (
-            <button 
-              type="button" 
-              onClick={() => navigate("/settings/profile")}
-              className="official-friend-select !bg-gray-100 !text-gray-800"
-            >
-              Editar Perfil
-            </button>
+            <div className="flex gap-2 mt-4">
+              <button 
+                type="button" 
+                onClick={() => navigate("/settings/profile")}
+                className="official-friend-select"
+              >
+                Editar Perfil
+              </button>
+              <button 
+                type="button" 
+                onClick={() => logout()}
+                className="official-friend-select !bg-red-50 !text-red-500 !border-red-100"
+              >
+                Sair
+              </button>
+            </div>
           )}
         </div>
       </header>

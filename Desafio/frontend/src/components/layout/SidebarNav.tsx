@@ -1,5 +1,5 @@
-import { ArrowLeft, LogOut, Sparkles } from "lucide-react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { ArrowLeft, LogOut, Sparkles, Activity } from "lucide-react";
+import { NavLink, useNavigate, Link } from "react-router-dom";
 import { figmaAssets } from "../../assets/figma/figmaAssets";
 import { AuthUser } from "../../lib/api";
 import { ProfileAvatar } from "../features/ProfileAvatar";
@@ -7,13 +7,18 @@ import { TeachgramLogo } from "./TeachgramLogo";
 
 export function SidebarNav({ onLogout, user, withTopbar = false }: { onLogout: () => void; user: AuthUser; withTopbar?: boolean }) {
   const navigate = useNavigate();
+  const isAdmin = user.role === "ADMIN";
   const items = [
     ["/", figmaAssets.homeIcon, "Feed"],
     ["/ai/studio", "sparkles", "IA Studio"],
     ["/friends", figmaAssets.friendsIcon, "Amigos"],
     [`/u/${user.username}`, "avatar", "Perfil"],
     ["/settings/account", figmaAssets.settingsIcon, "Configurações"],
-  ] as const;
+  ] as any[];
+
+  if (isAdmin) {
+    items.push(["https://grafana.teachgram.com", "activity", "Métricas"]);
+  }
 
   return (
     <aside className="sidebar">
@@ -28,18 +33,37 @@ export function SidebarNav({ onLogout, user, withTopbar = false }: { onLogout: (
         <TeachgramLogo />
       )}
       <nav className="sidebar-nav">
-        {items.map(([href, icon, label]) => (
-          <NavLink key={href} to={href} className={({ isActive }) => `sidebar-item ${icon === "avatar" ? "sidebar-item-profile" : ""} ${isActive ? "active" : ""}`}>
-            {icon === "avatar" ? (
-              <div className="sidebar-avatar-wrapper"><ProfileAvatar profile={user} /></div>
-            ) : icon === "sparkles" ? (
-              <div className="sidebar-icon-img flex items-center justify-center"><Sparkles size={24} /></div>
-            ) : (
-              <img className="sidebar-icon-img" src={icon} alt="" aria-hidden />
-            )}
-            <span>{label}</span>
-          </NavLink>
-        ))}
+        {items.map(([href, icon, label]) => {
+          const isExternal = href.startsWith("http");
+          const content = (
+            <>
+              {icon === "avatar" ? (
+                <div className="sidebar-avatar-wrapper"><ProfileAvatar profile={user} /></div>
+              ) : icon === "sparkles" ? (
+                <div className="sidebar-icon-img flex items-center justify-center"><Sparkles size={24} /></div>
+              ) : icon === "activity" ? (
+                <div className="sidebar-icon-img flex items-center justify-center"><Activity size={24} /></div>
+              ) : (
+                <img className="sidebar-icon-img" src={icon} alt="" aria-hidden />
+              )}
+              <span>{label}</span>
+            </>
+          );
+
+          if (isExternal) {
+            return (
+              <a key={href} href={href} target="_blank" rel="noopener noreferrer" className="sidebar-item">
+                {content}
+              </a>
+            );
+          }
+
+          return (
+            <NavLink key={href} to={href} className={({ isActive }) => `sidebar-item ${icon === "avatar" ? "sidebar-item-profile" : ""} ${isActive ? "active" : ""}`}>
+              {content}
+            </NavLink>
+          );
+        })}
         <NavLink to="/new-post" className={({ isActive }) => `sidebar-item sidebar-item-create ${isActive ? "active" : ""}`}>
           <span className="create-icon" aria-hidden>
             <img className="create-icon-square" src={figmaAssets.createIconSquare} alt="" />
