@@ -1,9 +1,44 @@
 global:
   scrape_interval: 15s
 
+remote_write:
+  - url: https://prometheus-prod-40-prod-sa-east-1.grafana.net/api/prom/push
+    basic_auth:
+      username: ${GRAFANA_CLOUD_USER}
+      password: ${GRAFANA_CLOUD_TOKEN}
+
 scrape_configs:
   - job_name: "teachgram-api"
     metrics_path: "/actuator/prometheus"
     static_configs:
       - targets: ["host.docker.internal:8081"]
 
+  - job_name: "teachgram-production"
+    scheme: https
+    metrics_path: "/actuator/prometheus"
+    static_configs:
+      - targets: ["teachgram-api.onrender.com"]
+
+  - job_name: "teachgram-database"
+    static_configs:
+      - targets: ["teachgram-postgres-exporter:9187"]
+
+  - job_name: "teachgram-redis"
+    static_configs:
+      - targets: ["teachgram-redis-exporter:9121"]
+
+  - job_name: "teachgram-uptime"
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+          - https://teachgram-api.onrender.com/actuator/health
+          - https://teachgram.vercel.app/ # URL do seu Frontend (ajuste se for outra)
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: teachgram-blackbox-exporter:9115

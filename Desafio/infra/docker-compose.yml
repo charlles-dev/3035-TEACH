@@ -44,17 +44,46 @@ services:
       - "9090:9090"
     volumes:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-
-  grafana:
-    image: grafana/grafana:11.3.1
-    container_name: teachgram-grafana
-    ports:
-      - "3000:3000"
+    env_file:
+      - ../.env
     environment:
-      GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: admin
-    volumes:
-      - teachgram-grafana-data:/var/lib/grafana
+      - GRAFANA_CLOUD_USER=${GRAFANA_CLOUD_USER}
+      - GRAFANA_CLOUD_TOKEN=${GRAFANA_CLOUD_TOKEN}
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--enable-feature=expand-external-variables'
+
+#  grafana:
+#    image: grafana/grafana:11.3.1
+#    container_name: teachgram-grafana
+#    ports:
+#      - "3000:3000"
+#    environment:
+#      GF_SECURITY_ADMIN_USER: admin
+#      GF_SECURITY_ADMIN_PASSWORD: admin
+#      GF_AUTH_ANONYMOUS_ENABLED: "true"
+#      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+#    volumes:
+#      - teachgram-grafana-data:/var/lib/grafana
+
+  postgres-exporter:
+    image: prometheuscommunity/postgres-exporter
+    container_name: teachgram-postgres-exporter
+    environment:
+      DATA_SOURCE_NAME: "postgresql://postgres.irkuvpvxxvfakcnwbqka:raCDrzgWEvfAoFvb@aws-0-sa-east-1.pooler.supabase.com:5432/postgres?sslmode=require"
+
+  redis-exporter:
+    image: oliver006/redis_exporter
+    container_name: teachgram-redis-exporter
+    environment:
+      REDIS_ADDR: "rediss://deep-goshawk-123695.upstash.io:6379"
+      REDIS_PASSWORD: "gQAAAAAAAeMvAAIgcDExZTY3MGY3MTFlM2Y0NjQwYWEzMjVmMjkxNDcyZTU0Yw"
+
+  blackbox-exporter:
+    image: prom/blackbox-exporter
+    container_name: teachgram-blackbox-exporter
+    ports:
+      - "9115:9115"
 
 volumes:
   teachgram-postgres-data:
